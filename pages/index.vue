@@ -1,32 +1,9 @@
 <template>
-  <div>
-    <h3 class="text-xl mb-2">Servicios</h3>
-    <ul class="pl-2 mb-4">
-      <li>Desarrollo backend para proyectos puntuales</li>
-      <li>Formación en buenas prácticas PHP</li>
-    </ul>
-
-    <h3 class="text-xl mb-12">Habilidades</h3>
-    <div class="mb-2">
-      <GlobalTheTDDDiagram>
-        <p class="mb-2">Desarrollo Guiado por Test (TDD)</p>
-      </GlobalTheTDDDiagram>
-    </div>
-    <div class="mb-2">
-      <GlobalTheAPICommunicationDiagram>
-        <p class="mb-2">Desarrollo de APIs</p>
-      </GlobalTheAPICommunicationDiagram>
-    </div>
-    <ul class="pl-2">
-      <li>Comunicación con APIs de terceros</li>
-      <li>Laravel Nova</li>
-      <li>Laravel Queues</li>
-      <li>Laravel Vapor</li>
-      <li>CI</li>
-      <li>CD</li>
-      <li>Docker</li>
-      <li>PHPCSFixer</li>
-    </ul>
+  <h3 class="w-full py-3 bg-yellow-300 text-gray-700 text-center text-2xl">Desarrollo API con Laravel usando tests automáticos</h3>
+  <div class="min-h-screen bg-purple-100 px-10 py-2 text-xl">
+    <GlobalSocialMediaLinks class="mt-8" />
+    <GlobalServices class="mt-8" />
+    <GlobalAbilities class="mt-8" />
   </div>
 </template>
 
@@ -36,3 +13,5 @@ definePageMeta({
   title: 'Indice'
 })
 </script>
+
+
