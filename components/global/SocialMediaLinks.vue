@@ -1,5 +1,5 @@
 <template>
-    <section class="flex justify-between lg:justify-center lg:gap-8 w-full">
+    <section class="flex flex-wrap justify-center gap-8 w-full">
         <social-media-link media="Twitter" profile="https://twitter.com/mmanzano" />
         <social-media-link media="LinkedIn" profile="https://www.linkedin.com/in/miguelmanzano" />
         <social-media-link media="Flickr" profile="https://www.flickr.com/photos/nesimo" />
