@@ -8,8 +8,11 @@ defineProps<Props>()
 
 definePageMeta({
   middleware: 'blog-is-visible',
-  title: 'Blog',
   layout: 'general',
+})
+
+useHead({
+  title: 'Blog',
 })
 
 const { data: articles } = await useAsyncData(
