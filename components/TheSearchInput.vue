@@ -23,7 +23,7 @@ const articles: Ref<Article[]> = ref([]);
 </script>
 
 <template>
-  <div v-if="config.blogIsVisible">
+  <div v-if="config.public.blogIsVisible">
     <input
       class="border-2 border-solid pl-2"
       v-model="searchQuery"

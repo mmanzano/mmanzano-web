@@ -35,13 +35,12 @@ export default defineNuxtConfig({
     markdown: {},
   },
   
-  // Public config
-  publicRuntimeConfig: {
-    'blogIsVisible': process.env.BLOG_IS_VISIBLE || false,
+  // config
+  runtimeConfig: {
+    public: {
+      'blogIsVisible': (process.env.BLOG_IS_VISIBLE === 'true') || false,
+    }
   },
-
-  // Private config
-  privateRuntimeConfig: {},
   
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
