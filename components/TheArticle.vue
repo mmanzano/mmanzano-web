@@ -16,7 +16,8 @@ const { data: paginator } = await useAsyncData(
   `article-${props.article.slug}-links`, 
   () => queryContent('articles')
     .only(['title', 'slug'])
-    .sort({'order': 1})
+    .where({ 'isArchived': 0 })
+    .sort({ 'order': 1 })
     .findSurround(props.article._path)
 )
 

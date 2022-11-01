@@ -1,10 +1,7 @@
 <script setup lang="ts">
 import { RouteLocationNormalizedLoaded } from "vue-router";
 
-definePageMeta({
-  middleware: 'blog-is-visible',
-  layout: 'general',
-})
+
 
 const route: RouteLocationNormalizedLoaded = useRoute();
 
@@ -14,6 +11,12 @@ const { data: article } = await useAsyncData(
     .where({ isArchived: 0, slug: route.params.slug })
     .findOne()
 )
+
+useContentHead(article)
+definePageMeta({
+  middleware: 'blog-is-visible',
+  layout: 'general',
+})
 </script>
 
 <template>

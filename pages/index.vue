@@ -1,7 +1,7 @@
 <script setup lang="ts">
 definePageMeta({
   layout: 'general',
-  title: 'Indice'
+  title: 'Indice',
 })
 </script>
 
