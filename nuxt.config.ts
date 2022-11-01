@@ -31,6 +31,9 @@ export default defineNuxtConfig({
     ]
   },
 
+  content: {
+    markdown: {},
+  },
   
   // Public config
   publicRuntimeConfig: {

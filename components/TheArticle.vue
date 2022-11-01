@@ -29,9 +29,7 @@ const [prev, next] = paginator.value
     <h3>{{ article.description }}</h3>
     <p class="text-sm">Última actualización: {{ formatDate(article.updatedAt) }}</p>
 
-    <ContentRenderer :value="article">
-      <ContentRendererMarkdown :value="article" />
-    </ContentRenderer>
+    <ContentRenderer :value="article"></ContentRenderer>
 
     <TheAuthor v-for="author in article.authors" :key="author.name" :author="author"/>
 
