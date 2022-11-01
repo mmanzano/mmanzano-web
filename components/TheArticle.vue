@@ -1,19 +1,26 @@
 <script setup lang="ts">
 import type Article from '@/interfaces/Article'
-// import type PaginationRef from '@/interfaces/PaginationRef'
 
 interface Props {
   article: Article,
-  // prev: PaginationRef,
-  // next: PaginationRef,
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
 
 const formatDate = (date: string): string => {
   const options: object = {year: 'numeric', month: 'long', day: 'numeric'}
   return new Date(date).toLocaleDateString('es', options)
 }
+
+const { data: paginator } = await useAsyncData(
+  `article-${props.article.slug}-links`, 
+  () => queryContent('articles')
+    .only(['title', 'slug'])
+    .sort({'order': 1})
+    .findSurround(props.article._path)
+)
+
+const [prev, next] = paginator.value
 </script>
 
 <template>
@@ -28,7 +35,7 @@ const formatDate = (date: string): string => {
 
     <TheAuthor v-for="author in article.authors" :key="author.name" :author="author"/>
 
-    <!-- <PrevNext :prev="prev" :next="next" /> -->
+    <PrevNext :prev="prev" :next="next" />
   </article>
 </template>
 

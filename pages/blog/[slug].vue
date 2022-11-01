@@ -14,23 +14,10 @@ const { data: article } = await useAsyncData(
     .where({ isArchived: 0, slug: route.params.slug })
     .findOne()
 )
-
-
-// const { data: [prev, next] } = await useAsyncData(
-//   `article-${route.params.slug}-links`, 
-//   () => queryContent('/articles')
-//     .only(['title', 'slug'])
-//     .sort({'order': 1})
-//     .findSurround(toString(route.params.slug))
-// )
-
-// console.log('hola');
-// console.log(prev, next);
 </script>
 
 <template>
   <div>
     <TheArticle :article="article"/>
-    <!-- <TheArticle :article="article" :prev="prev" :next="next"/> -->
   </div>
 </template>
