@@ -7,22 +7,19 @@ definePageMeta({
 })
 
 interface Props {
-  articles: Article[]
+  articles?: Article[]
 }
 
 defineProps<Props>()
 
-// Todo: Retrieve articles from Content 2. Change that to Nuxt3 version.
-// async asyncData({ $content, params }) {
-//   const articles = await $content('articles')
-//     .without(['body'])
-//     .sortBy('order', 'asc')
-//     .fetch()
-
-//   return {
-//     articles
-//   }
-// }
+const { data: articles } = await useAsyncData(
+  'home-articles', 
+  () => queryContent('articles')
+    .without(['body'])
+    .where({ isArchived: 0 })
+    .sort({'order': 1})
+    .find()
+)
 </script>
 
 <template>

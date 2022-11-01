@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type Article from '@/interfaces/Article'
-import type PaginationRef from '@/interfaces/PaginationRef'
+// import type PaginationRef from '@/interfaces/PaginationRef'
 
 interface Props {
   article: Article,
-  prev: PaginationRef,
-  next: PaginationRef,
+  // prev: PaginationRef,
+  // next: PaginationRef,
 }
 
 defineProps<Props>()
@@ -22,13 +22,13 @@ const formatDate = (date: string): string => {
     <h3>{{ article.description }}</h3>
     <p class="text-sm">Última actualización: {{ formatDate(article.updatedAt) }}</p>
 
-    <TocList :toc="article.toc" />
+    <ContentRenderer :value="article">
+      <ContentRendererMarkdown :value="article" />
+    </ContentRenderer>
 
-    <NuxtContent :document="article" />
+    <TheAuthor v-for="author in article.authors" :key="author.name" :author="author"/>
 
-    <TheAuthor :author="article.author" />
-
-    <PrevNext :prev="prev" :next="next" />
+    <!-- <PrevNext :prev="prev" :next="next" /> -->
   </article>
 </template>
 

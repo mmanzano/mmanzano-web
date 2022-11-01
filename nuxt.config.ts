@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxt/content',
   ],
 
   components: {

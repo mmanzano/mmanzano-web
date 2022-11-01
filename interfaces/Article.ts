@@ -5,7 +5,7 @@ export default interface Article {
   slug: string,
   img: string,
   alt: string,
-  author: Author,
+  authors: Author[],
   title: string,
   toc: TocItem[],
   description: string,
