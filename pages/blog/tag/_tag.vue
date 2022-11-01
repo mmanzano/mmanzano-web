@@ -1,11 +1,3 @@
-<template>
-  <div>
-    <h1>Etiqueta: {{ $route.params.tag }}</h1>
-    <h3>Artículos con la etiqueta {{ $route.params.tag }}:</h3>
-    <!-- <ArticleList :articles="articles" /> -->
-  </div>
-</template>
-
 <script setup lang="ts">
 definePageMeta({
   middleware: 'blog-is-visible',
@@ -25,3 +17,11 @@ definePageMeta({
 //   }
 // }
 </script>
+
+<template>
+  <div>
+    <h1>Etiqueta: {{ $route.params.tag }}</h1>
+    <h3>Artículos con la etiqueta {{ $route.params.tag }}:</h3>
+    <!-- <ArticleList :articles="articles" /> -->
+  </div>
+</template>

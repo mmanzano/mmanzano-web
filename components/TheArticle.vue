@@ -1,19 +1,3 @@
-<template>
-  <article class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto">
-    <h2>{{ article.title }}</h2>
-    <h3>{{ article.description }}</h3>
-    <p class="text-sm">Última actualización: {{ formatDate(article.updatedAt) }}</p>
-
-    <TocList :toc="article.toc" />
-
-    <NuxtContent :document="article" />
-
-    <TheAuthor :author="article.author" />
-
-    <PrevNext :prev="prev" :next="next" />
-  </article>
-</template>
-
 <script setup lang="ts">
 import type Article from '@/interfaces/Article'
 import type PaginationRef from '@/interfaces/PaginationRef'
@@ -31,6 +15,22 @@ const formatDate = (date: string): string => {
   return new Date(date).toLocaleDateString('es', options)
 }
 </script>
+
+<template>
+  <article class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto">
+    <h2>{{ article.title }}</h2>
+    <h3>{{ article.description }}</h3>
+    <p class="text-sm">Última actualización: {{ formatDate(article.updatedAt) }}</p>
+
+    <TocList :toc="article.toc" />
+
+    <NuxtContent :document="article" />
+
+    <TheAuthor :author="article.author" />
+
+    <PrevNext :prev="prev" :next="next" />
+  </article>
+</template>
 
 <style lang="css">
 /* box with code style */

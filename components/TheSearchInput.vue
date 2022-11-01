@@ -1,22 +1,3 @@
-<template>
-  <div v-if="config.blogIsVisible">
-    <input
-      class="border-2 border-solid pl-2"
-      v-model="searchQuery"
-      type="search"
-      autocomplete="off"
-      placeholder="Buscar"
-    />
-    <ul v-if="articles.length">
-      <li v-for="article of articles" :key="article.slug">
-        <NuxtLink :to="{ name: 'blog-slug', params: { slug: article.slug } }">
-          {{ article.title }}
-        </NuxtLink>
-      </li>
-    </ul>
-  </div>
-</template>
-
 <script setup lang="ts">
 import type Article from '@/interfaces/Article'
 import { ref } from 'vue'
@@ -40,3 +21,22 @@ const articles: Ref<Article[]> = ref([]);
 //   }
 // }
 </script>
+
+<template>
+  <div v-if="config.blogIsVisible">
+    <input
+      class="border-2 border-solid pl-2"
+      v-model="searchQuery"
+      type="search"
+      autocomplete="off"
+      placeholder="Buscar"
+    />
+    <ul v-if="articles.length">
+      <li v-for="article of articles" :key="article.slug">
+        <NuxtLink :to="{ name: 'blog-slug', params: { slug: article.slug } }">
+          {{ article.title }}
+        </NuxtLink>
+      </li>
+    </ul>
+  </div>
+</template>

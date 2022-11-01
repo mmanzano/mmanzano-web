@@ -1,9 +1,3 @@
-<template>
-  <div>
-    <!-- <TheArticle :article="article" :prev="prev" :next="next"/> -->
-  </div>
-</template>
-
 <script setup lang="ts">
 definePageMeta({
   middleware: 'blog-is-visible',
@@ -27,3 +21,9 @@ definePageMeta({
 //   }
 // }
 </script>
+
+<template>
+  <div>
+    <!-- <TheArticle :article="article" :prev="prev" :next="next"/> -->
+  </div>
+</template>

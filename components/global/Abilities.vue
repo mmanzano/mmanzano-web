@@ -1,14 +1,3 @@
-<template>
-    <div class="flex justify-center">
-        <ul class="pl-2 mt-2 flex flex-wrap gap-4 text-base w-full lg:w-1/2">
-            <li v-for="ability in abilities" :key="ability.id" class="p-4 bg-gray-50 border-4 border-solid border-black rounded-xl">
-                {{ ability.label }}
-            </li>
-        </ul>
-    </div>
-</template>
-
-
 <script setup lang="ts">
 const abilities = [
     {
@@ -57,3 +46,13 @@ const abilities = [
     },
 ]
 </script>
+
+<template>
+    <div class="flex justify-center">
+        <ul class="pl-2 mt-2 flex flex-wrap gap-4 text-base w-full lg:w-1/2">
+            <li v-for="ability in abilities" :key="ability.id" class="p-4 bg-gray-50 border-4 border-solid border-black rounded-xl">
+                {{ ability.label }}
+            </li>
+        </ul>
+    </div>
+</template>

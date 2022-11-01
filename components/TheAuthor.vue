@@ -1,9 +1,3 @@
-<template>
-  <p>
-    {{ author.name }}
-  </p>
-</template>
-
 <script setup lang="ts">
 import type Author from '@/interfaces/Author'
 
@@ -13,3 +7,9 @@ interface Props {
 
 defineProps<Props>()
 </script>
+
+<template>
+  <p>
+    {{ author.name }}
+  </p>
+</template>

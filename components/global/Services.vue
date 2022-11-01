@@ -3,7 +3,7 @@
         <ServiceCard>
         Desarrollo backend
         <template #body>
-            Mi trabajo suele ser desarrollar el backend de aplicaciones que contarán con una parte interativa desarrollada con Vue/Nuxt o de su propia aplicación para dispositivos móviles
+            Mi trabajo suele ser desarrollar el backend de aplicaciones que contarán con una parte interactiva desarrollada con Vue/Nuxt o de su propia aplicación para dispositivos móviles.
         </template>
         </ServiceCard>
 
@@ -14,4 +14,4 @@
         </template>
         </ServiceCard>
     </section>
-</template>   
+</template>

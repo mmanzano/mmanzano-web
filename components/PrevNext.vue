@@ -1,3 +1,14 @@
+<script setup lang="ts">
+import type PaginationRef from '@/interfaces/PaginationRef'
+
+interface Props {
+  prev: PaginationRef,
+  next: PaginationRef,
+}
+
+defineProps<Props>()
+</script>
+
 <template>
   <div class="flex justify-between">
     <NuxtLink
@@ -19,14 +30,3 @@
     <span v-else>&nbsp;</span>
   </div>
 </template>
-
-<script setup lang="ts">
-import type PaginationRef from '@/interfaces/PaginationRef'
-
-interface Props {
-  prev: PaginationRef,
-  next: PaginationRef,
-}
-
-defineProps<Props>()
-</script>

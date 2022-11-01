@@ -1,11 +1,3 @@
-<template>
-  <div>
-    <h1>Categoría: {{ $route.params.category }}</h1>
-    <h3>Artículos en la categoría {{ $route.params.category }}:</h3>
-    <!-- <ArticleList :articles="articles" /> -->
-  </div>
-</template>
-
 <script setup lang="ts">
 definePageMeta({
   middleware: 'blog-is-visible',
@@ -25,3 +17,11 @@ definePageMeta({
 //   }
 // }
 </script>
+
+<template>
+  <div>
+    <h1>Categoría: {{ $route.params.category }}</h1>
+    <h3>Artículos en la categoría {{ $route.params.category }}:</h3>
+    <!-- <ArticleList :articles="articles" /> -->
+  </div>
+</template>

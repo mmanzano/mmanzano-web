@@ -6,6 +6,3 @@
         <social-media-link media="Instagram" profile="https://www.instagram.com/mmanzano/" />
     </section>
 </template>
-
-<script setup lang="ts">
-</script>

@@ -1,16 +1,3 @@
-<template>
-  <div class="border-2 border-solid min-w-min">
-    <NuxtLink :to="{ name: 'blog-slug', params: { slug: article.slug } }">
-      <img v-if="article.img" :src="article.img" :alt="article.alt" />
-      <div>
-        <h2>{{ article.title }}</h2>
-        <p>{{ article.description }}</p>
-        <p>{{ formatDate(article.updatedAt) }}</p>
-      </div>
-    </NuxtLink>
-  </div>
-</template>
-
 <script setup lang="ts">
 import type Article from '@/interfaces/Article'
 
@@ -25,3 +12,16 @@ const formatDate = (date: string): string => {
   return new Date(date).toLocaleDateString('es', options)
 }
 </script>
+
+<template>
+  <div class="border-2 border-solid min-w-min">
+    <NuxtLink :to="{ name: 'blog-slug', params: { slug: article.slug } }">
+      <img v-if="article.img" :src="article.img" :alt="article.alt" />
+      <div>
+        <h2>{{ article.title }}</h2>
+        <p>{{ article.description }}</p>
+        <p>{{ formatDate(article.updatedAt) }}</p>
+      </div>
+    </NuxtLink>
+  </div>
+</template>

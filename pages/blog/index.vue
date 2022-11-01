@@ -1,13 +1,3 @@
-<template>
-  <div>
-    <ul>
-      <li v-for="article in articles" :key="article.slug">
-        <article-card :article="article"/>
-      </li>
-    </ul>
-  </div>
-</template>
-
 <script setup lang="ts">
 import type Article from '@/interfaces/Article'
 
@@ -34,3 +24,13 @@ defineProps<Props>()
 //   }
 // }
 </script>
+
+<template>
+  <div>
+    <ul>
+      <li v-for="article in articles" :key="article.slug">
+        <article-card :article="article"/>
+      </li>
+    </ul>
+  </div>
+</template>
