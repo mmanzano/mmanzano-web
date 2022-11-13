@@ -8,6 +8,7 @@ useHead({
   title: 'Blog',
 })
 
+// Todo: Review later and add Typescript. I think they will add something like automatic resolution. Wait for it.
 const { data: articles } = await useAsyncData(
   'home-articles', 
   () => queryContent('articles')

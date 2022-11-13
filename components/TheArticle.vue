@@ -12,6 +12,7 @@ const formatDate = (date: string): string => {
   return new Date(date).toLocaleDateString('es', options)
 }
 
+// Todo: Review later and add Typescript. I think they will add something like automatic resolution. Wait for it.
 const { data: paginator } = await useAsyncData(
   `article-${props.article.slug}-links`, 
   () => queryContent('articles')
