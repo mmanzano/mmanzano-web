@@ -13,24 +13,24 @@ export default defineNuxtConfig({
       '~/components',
     ],
   },
-  title: 'mmanzano',
-  // Global page headers: https://go.nuxtjs.dev/config-head
-  head: {
-    title: 'mmanzano',
-    htmlAttrs: {
-      lang: 'es'
+  app: {
+      // Global page headers: https://v3.nuxtjs.org/getting-started/seo-meta#defaults
+      head: {
+        title: 'mmanzano.com',
+        htmlAttrs: {
+          lang: 'es'
+        },
+        meta: [
+          { charset: 'utf-8' },
+          { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+          { hid: 'description', name: 'description', content: 'Página y blog de Miguel Manzano García' },
+          { name: 'format-detection', content: 'telephone=no' }
+        ],
+        link: [
+          { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+        ]
     },
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
-    ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
   },
-
   content: {
     markdown: {},
   },

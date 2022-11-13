@@ -3,6 +3,9 @@ definePageMeta({
   layout: 'general',
   title: 'Indice',
 })
+useHead({
+  title: 'Portada',
+})
 </script>
 
 <template>
