@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { RouteLocationNormalizedLoaded } from "vue-router";
 
-
-
 const route: RouteLocationNormalizedLoaded = useRoute();
 
 const { data: article } = await useAsyncData(

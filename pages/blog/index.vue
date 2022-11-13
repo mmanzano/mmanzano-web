@@ -1,11 +1,4 @@
 <script setup lang="ts">
-import type Article from '@/interfaces/Article'
-interface Props {
-  articles?: Article[]
-}
-
-defineProps<Props>()
-
 definePageMeta({
   middleware: 'blog-is-visible',
   layout: 'general',
