@@ -6,7 +6,7 @@ useHead({
 
 <template>
   <div class="w-full">
-    <MainHeader/>
+    <MainHeader />
     <NuxtPage />
   </div>
 </template>
