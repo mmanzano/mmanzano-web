@@ -7,6 +7,8 @@ useHead({
 <template>
   <div class="w-full">
     <MainHeader />
-    <NuxtPage />
+    <div class="min-h-screen bg-yellow-100 px-10 py-2 text-xl">
+      <NuxtPage />
+    </div>
   </div>
 </template>

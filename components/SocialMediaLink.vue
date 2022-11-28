@@ -8,7 +8,18 @@ defineProps<Props>()
 </script>
 
 <template>
-    <div class="border-2 bg-purple-700 text-white p-4">
-        <a :href="profile">{{ media }}</a>
+  <NuxtLink :to="profile">
+    <div class="social-media-link">
+      {{ media }}
     </div>
+  </NuxtLink>
 </template>
+
+<style scoped>
+.social-media-link {
+  background-color: #555;
+  color: white;
+  padding: 1rem;
+  border-radius: 0.4rem;
+}
+</style>

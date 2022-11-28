@@ -8,9 +8,11 @@
                     Web o
                     Mobile.
                 </p>
-                <TheAPICommunicationDiagram>
-                    <p class="mt-4 mb-2">Petición HTTP:</p>
-                </TheAPICommunicationDiagram>
+                <p class="diagram">
+                    <TheAPICommunicationDiagram>
+                        <p class="diagram_text">Petición HTTP</p>
+                    </TheAPICommunicationDiagram>
+                </p>
             </template>
         </ServiceCard>
 
@@ -18,13 +20,15 @@
             Buenas prácticas
             <template #body>
                 <p>
-                Soy parte de diferentes comunidades que apuestan por la mejora continua.
-                Intento llevar estos aprendizajes a los
-                proyectos donde participo como desarrollador o lead.
+                    Soy parte de diferentes comunidades que apuestan por la mejora continua.
+                    Intento llevar estos aprendizajes a los
+                    proyectos donde participo como desarrollador o lead.
                 </p>
-                <TheTDDDiagram>
-                    <p class="mt-4 mb-2">Desarrollo guiado por tests:</p>
-                </TheTDDDiagram>
+                <p class="diagram">
+                    <TheTDDDiagram>
+                        <p class="diagram_text">Desarrollo guiado por tests</p>
+                    </TheTDDDiagram>
+                </p>
             </template>
         </ServiceCard>
     </section>
@@ -38,5 +42,17 @@ section {
     display: grid;
     gap: 2rem 10rem;
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+}
+
+.diagram {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.diagram_text {
+    font-size: 0.8em;
+    margin-top: 0.8em;
 }
 </style>

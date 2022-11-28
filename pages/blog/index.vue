@@ -20,7 +20,7 @@ const { data: articles } = await useAsyncData(
 </script>
 
 <template>
-  <div class="min-h-screen bg-purple-100 px-10 py-2 text-xl">
+  <div>
     <ArticleList :articles="articles" />
   </div>
 </template>

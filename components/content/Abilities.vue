@@ -10,7 +10,7 @@ const abilities = [
     },
     {
         id: 3,
-        label: 'Comunicación con API de terceros',
+        label: 'Comunicación con otras API',
     },
     {
         id: 4,
@@ -21,8 +21,8 @@ const abilities = [
         label: 'Queues en Laravel',
     },
     {
-        id: 6,   
-        label: 'Despliegue de aplicaciones usando Laravel Vapor',
+        id: 6,
+        label: 'Laravel Vapor',
     },
     {
         id: 7,
@@ -48,11 +48,36 @@ const abilities = [
 </script>
 
 <template>
-    <div class="flex justify-center">
-        <ul class="pl-2 mt-2 flex flex-wrap gap-4 text-base w-full lg:w-1/2">
-            <li v-for="ability in abilities" :key="ability.id" class="p-4 bg-gray-50 border-4 border-solid border-black rounded-xl">
+    <div class="ability_container">
+        <ul class="ability_list">
+            <li v-for="ability in abilities" :key="ability.id" class="ability_tag">
                 {{ ability.label }}
             </li>
         </ul>
     </div>
 </template>
+
+<style scoped>
+.ability_container {
+    display: flex;
+    justify-content: center;
+}
+
+.ability_list {
+    padding-left: .1em;
+    margin-top: .1em;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: .5em;
+    max-width: 1024px;
+}
+
+.ability_tag {
+    font-size: .8em;
+    padding: 1em;
+    background-color: #555;
+    color: white;
+    border-radius: 1em;
+}
+</style>
