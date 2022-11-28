@@ -10,7 +10,7 @@
     <div class="arrows-box">
       <div>
         <div class="arrow-client">
-          <div>
+          <div class="arrow-client-text">
             Petición
           </div>
           <div class="arrow-draw">
@@ -21,7 +21,7 @@
       </div>
       <div>
         <div class="arrow-server">
-          <div>
+          <div class="arrow-server-text">
             Respuesta
           </div>
           <div class="arrow-draw">
@@ -67,10 +67,15 @@
 }
 
 .arrows-box {
-  min-width: 8em;
+  min-width: 3em;
   display: flex;
   flex-direction: column;
   text-align: center;
+}
+
+.arrow-server-text,
+.arrow-client-text {
+  display: none;
 }
 
 .arrow-client {
@@ -110,5 +115,17 @@
 .arrow-head-to-left {
   transform: rotate(-90deg);
   -webkit-transform: rotate(-90deg);
+}
+
+@media(min-width: 921px) {
+
+  .arrow-server-text,
+  .arrow-client-text {
+    display: block;
+  }
+
+  .arrows-box {
+    min-width: 8em;
+  }
 }
 </style>
