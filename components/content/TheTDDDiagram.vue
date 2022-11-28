@@ -1,5 +1,5 @@
 <template>
-  <slot/>
+  <slot />
   <div class="tdd-diagram-box">
     <div class="round-signal test-box">
       <div>
@@ -9,7 +9,7 @@
 
     <div class="round-signal green-box">
       <div>
-        Verde
+        Código
       </div>
     </div>
 
@@ -23,17 +23,16 @@
 
 <style scoped>
 .tdd-diagram-box {
-  width: 300px;
-  height: 300px;
-  background-color: #FEFEFE;
+  width: 10em;
+  height: 10em;
   position: relative;
 }
 
 .round-signal {
-  width: 100px;
-  height: 100px;
+  width: 7em;
+  height: 7em;
   position: absolute;
-  border-radius: 50px;
+  border-radius: 7em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,18 +44,18 @@
 .test-box {
   top: 0;
   left: 0;
-  background-color: red;
+  background-color: #000;
 }
 
 .green-box {
-  top: 100px;
+  top: 25%;
   right: 0;
-  background-color: green;
+  background-color: #333;
 }
 
 .refactor-box {
   bottom: 0;
   left: 0;
-  background-color: blue;
+  background-color: #555;
 }
 </style>

@@ -34,7 +34,7 @@
 
     <div class="client-server-box api-server">
       <div>
-        Server
+        Servidor
       </div>
     </div>
   </div>
@@ -42,51 +42,58 @@
 
 <style scoped>
 .api-communication-diagram-box {
-  width: 600px;
-  height: 200px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
+
 .client-server-box {
-  width: 30%;
-  height: 80%;
+  width: auto;
+  height: 6em;
+  padding: 1em;
   background-color: #FCE1E5;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .api-client {
-  background: green;
+  background: #222;
   color: white;
 }
+
 .api-server {
-  background: deeppink;
+  background: #555;
   color: white;
 }
+
 .arrows-box {
+  min-width: 8em;
   display: flex;
   flex-direction: column;
   text-align: center;
 }
+
 .arrow-client {
-  color: green;
-  border-color: green;
+  color: #222;
+  border-color: #222;
 }
+
 .arrow-server {
-  color: deeppink;
-  border-color: deeppink;
+  color: #555;
+  border-color: #555;
 }
+
 .arrow-draw {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
 }
+
 .arrow-body {
   border-top: 6px solid;
-  width: 300px;
+  width: 100%;
 }
+
 .arrow-head {
   width: 0;
   height: 0;
@@ -94,10 +101,12 @@
   border-right: 12px solid transparent;
   border-bottom: 24px solid;
 }
+
 .arrow-head-to-right {
   transform: rotate(90deg);
   -webkit-transform: rotate(90deg);
 }
+
 .arrow-head-to-left {
   transform: rotate(-90deg);
   -webkit-transform: rotate(-90deg);
