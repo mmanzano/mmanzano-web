@@ -8,16 +8,24 @@ interface Props {
 const props = defineProps<Props>()
 
 const formatDate = (date: string): string => {
-  const options: object = {year: 'numeric', month: 'long', day: 'numeric'}
+  const options: object = { year: 'numeric', month: 'long', day: 'numeric' }
   return new Date(date).toLocaleDateString('es', options)
 }
 
+const route = useRoute();
+
 // Todo: Review later and add Typescript. I think they will add something like automatic resolution. Wait for it.
 const { data: paginator } = await useAsyncData(
-  `article-${props.article.slug}-links`, 
+  `article-${props.article.language}-${props.article.slug}-links`,
   () => queryContent('articles')
-    .only(['title', 'slug'])
-    .where({ 'isArchived': 0 })
+    .only([
+      'title',
+      'slug'
+    ])
+    .where({
+      'language': route.params.lang,
+      'isArchived': 0,
+    })
     .sort({ 'order': 1 })
     .findSurround(props.article._path)
 )
@@ -28,14 +36,13 @@ const [prev, next] = paginator.value
 <template>
   <article class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto">
     <h2>{{ article.title }}</h2>
-    <h3>{{ article.description }}</h3>
     <p class="text-sm">Última actualización: {{ formatDate(article.updatedAt) }}</p>
 
     <ContentRenderer :value="article"></ContentRenderer>
 
-    <TheAuthor v-for="author in article.authors" :key="author.name" :author="author"/>
+    <ArticleItemAuthor v-for="author in article.authors" :key="author.name" :author="author" />
 
-    <PrevNext :prev="prev" :next="next" />
+    <ArticleItemPrevNext :prev="prev" :next="next" />
   </article>
 </template>
 

@@ -3,32 +3,32 @@
         <ServiceCard>
             Desarrollo backend
             <template #body>
-                <p>
+                <div>
                     En mi día a día desarrollo, en equipo, la parte backend de diversas aplicaciones que tienen una UI
                     Web o
                     Mobile.
-                </p>
-                <p class="diagram">
+                </div>
+                <div class="diagram">
                     <TheAPICommunicationDiagram>
                         <p class="diagram_text">Petición HTTP</p>
                     </TheAPICommunicationDiagram>
-                </p>
+                </div>
             </template>
         </ServiceCard>
 
         <ServiceCard>
             Buenas prácticas
             <template #body>
-                <p>
+                <div>
                     Soy parte de diferentes comunidades que apuestan por la mejora continua.
                     Intento llevar estos aprendizajes a los
                     proyectos donde participo como desarrollador o lead.
-                </p>
-                <p class="diagram">
+                </div>
+                <div class="diagram">
                     <TheTDDDiagram>
                         <p class="diagram_text">Desarrollo guiado por tests</p>
                     </TheTDDDiagram>
-                </p>
+                </div>
             </template>
         </ServiceCard>
     </section>

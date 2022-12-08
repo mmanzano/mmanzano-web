@@ -1,6 +1,6 @@
 <template>
   <header>
-    <NavigationHeader />
+    <MainHeaderNavigation />
     <MainHero />
   </header>
 </template>

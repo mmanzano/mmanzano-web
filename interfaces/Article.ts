@@ -4,6 +4,7 @@ import type Author from './Author'
 export default interface Article {
   _path: string,
   slug: string,
+  language: string,
   img: string,
   alt: string,
   authors: Author[],
