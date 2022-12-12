@@ -13,7 +13,7 @@ defineProps<Props>()
   <div class="flex justify-between">
     <NuxtLink
       v-if="prev"
-      :to="{ name: 'blog-slug', params: { slug: prev.slug } }"
+      :to="{ name: 'lang-blog-slug', params: { slug: prev.slug } }"
       class="font-bold text-primary hover:underline"
     >
       {{ prev.title }}
@@ -22,7 +22,7 @@ defineProps<Props>()
 
     <NuxtLink
       v-if="next"
-      :to="{ name: 'blog-slug', params: { slug: next.slug } }"
+      :to="{ name: 'lang-blog-slug', params: { slug: next.slug } }"
       class="font-bold hover:underline"
     >
       {{ next.title }}

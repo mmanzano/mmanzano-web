@@ -17,7 +17,10 @@ const { data: article } = await useAsyncData(
 
 useContentHead(article)
 definePageMeta({
-  middleware: 'blog-is-visible',
+  middleware: [
+    'blog-is-visible',
+    'redirect-if-language-is-not-supported'
+  ],
   layout: 'general',
 })
 </script>

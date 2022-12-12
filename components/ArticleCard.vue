@@ -14,7 +14,7 @@ const formatDate = (date: string): string => {
 </script>
 
 <template>
-  <NuxtLink :to="{ name: 'blog-lang-slug', params: { lang: article.language, slug: article.slug } }">
+  <NuxtLink :to="{ name: 'lang-blog-slug', params: { lang: article.language, slug: article.slug } }">
     <div class="article_card">
       <img v-if="article.img" :src="`/pictures/${article.img}`" :alt="article.alt" />
       <div>
