@@ -48,9 +48,9 @@ const abilities = [
 </script>
 
 <template>
-    <div class="ability_container">
-        <ul class="ability_list">
-            <li v-for="ability in abilities" :key="ability.id" class="ability_tag">
+    <div class="ability__container">
+        <ul class="ability__list">
+            <li v-for="ability in abilities" :key="ability.id" class="ability__tag">
                 {{ ability.label }}
             </li>
         </ul>
@@ -58,12 +58,12 @@ const abilities = [
 </template>
 
 <style scoped>
-.ability_container {
+.ability__container {
     display: flex;
     justify-content: center;
 }
 
-.ability_list {
+.ability__list {
     padding-left: .1em;
     margin-top: .1em;
     display: flex;
@@ -73,7 +73,7 @@ const abilities = [
     max-width: 1024px;
 }
 
-.ability_tag {
+.ability__tag {
     font-size: .8em;
     padding: 1em;
     background-color: #555;

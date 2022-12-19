@@ -1,6 +1,6 @@
 <template>
     <section>
-        <ServiceCard>
+        <ServiceListItem>
             Desarrollo backend
             <template #body>
                 <div>
@@ -10,13 +10,13 @@
                 </div>
                 <div class="diagram">
                     <TheAPICommunicationDiagram>
-                        <p class="diagram_text">Petición HTTP</p>
+                        <p class="diagram__text">Petición HTTP</p>
                     </TheAPICommunicationDiagram>
                 </div>
             </template>
-        </ServiceCard>
+        </ServiceListItem>
 
-        <ServiceCard>
+        <ServiceListItem>
             Buenas prácticas
             <template #body>
                 <div>
@@ -26,11 +26,11 @@
                 </div>
                 <div class="diagram">
                     <TheTDDDiagram>
-                        <p class="diagram_text">Desarrollo guiado por tests</p>
+                        <p class="diagram__text">Desarrollo guiado por tests</p>
                     </TheTDDDiagram>
                 </div>
             </template>
-        </ServiceCard>
+        </ServiceListItem>
     </section>
 </template>
 
@@ -51,7 +51,7 @@ section {
     align-items: center;
 }
 
-.diagram_text {
+.diagram__text {
     font-size: 0.8em;
     margin-top: 0.8em;
 }

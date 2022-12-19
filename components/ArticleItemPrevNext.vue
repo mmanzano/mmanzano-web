@@ -23,7 +23,7 @@ defineProps<Props>()
     <NuxtLink
       v-if="next"
       :to="{ name: 'lang-blog-slug', params: { slug: next.slug } }"
-      class="font-bold hover:underline"
+      class="font-bold text-primary hover:underline"
     >
       {{ next.title }}
     </NuxtLink>

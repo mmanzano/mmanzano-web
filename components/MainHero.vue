@@ -15,7 +15,7 @@ const { lang } = useSupportedNavigatorLanguage();
       Miguel Manzano García
     </h2>
   </div>
-  <h3 class="w-full py-3 bg-yellow-300 text-gray-700 text-center text-2xl">
+  <h3 class="w-full py-3 px-10 bg-yellow-300 text-gray-700 text-center text-2xl">
     {{
     lang === 'es'
       ? 'Desarrollo API usando tests automáticos con Laravel'

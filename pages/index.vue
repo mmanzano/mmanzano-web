@@ -10,8 +10,8 @@ useHead({
 
 <template>
   <div>
-    <SocialMediaLinks class="mt-8" />
-    <Services class="mt-8" />
-    <Abilities class="mt-8" />
+    <SocialMediaLinkList class="mt-8" />
+    <ServiceList class="mt-8" />
+    <AbilityList class="mt-8" />
   </div>
 </template>
