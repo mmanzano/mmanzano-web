@@ -44,6 +44,14 @@ export default defineNuxtConfig({
     }
   },
 
+  nitro: {
+    prerender: {
+      routes: [
+        '/en/blog',
+      ]
+    }
+  },
+
   routeRules: {
     // Static page generated on-demand once
     '/**': { static: true },
