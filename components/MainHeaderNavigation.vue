@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const config = useRuntimeConfig();
-const { lang } = useSupportedNavigatorLanguage();
+const config = useRuntimeConfig()
+const { lang } = useSupportedNavigatorLanguage()
 </script>
 
 <template>

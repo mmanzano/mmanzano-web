@@ -12,7 +12,7 @@ const formatDate = (date: string): string => {
   return new Date(date).toLocaleDateString('es', options)
 }
 
-const route = useRoute();
+const route = useRoute()
 
 // Todo: Review later and add Typescript. I think they will add something like automatic resolution. Wait for it.
 const { data: paginator } = await useAsyncData(

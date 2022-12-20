@@ -44,10 +44,10 @@ export default defineNuxtConfig({
     }
   },
 
-
-
-  // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
+  routeRules: {
+    // Static page generated on-demand once
+    '/**': { static: true },
+  },
 
   typescript: {
     shim: false,

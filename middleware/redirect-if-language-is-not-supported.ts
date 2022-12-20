@@ -1,10 +1,9 @@
-import { getLangFromRoute } from '@/composables/useSupportedNavigatorLanguage'
-import { RouteLocationNormalizedLoaded } from 'vue-router';
+import { RouteLocationNormalizedLoaded } from 'vue-router'
 
 export default defineNuxtRouteMiddleware((to: RouteLocationNormalizedLoaded) => {
-  const langFromRoute = getLangFromRoute(to);
+  const langFromRoute = useLanguageFromRoute(to)
   if (langFromRoute === null) {
-    return;
+    return
   }
 
   if (!(['es', 'en'].includes(langFromRoute))) {

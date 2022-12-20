@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { lang } = useSupportedNavigatorLanguage();
+const { lang } = useSupportedNavigatorLanguage()
 </script>
 
 <template>
