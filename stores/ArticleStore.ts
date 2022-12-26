@@ -3,8 +3,9 @@ import { defineStore, acceptHMRUpdate } from "pinia";
 export const useArticleStore = defineStore("ArticleStore", {
     state: () => {
         return {
-            articleList: null,
-            article: null
+            articleList: [],
+            article: null,
+            paginator: []
         };
     },
     actions: {
@@ -25,7 +26,7 @@ export const useArticleStore = defineStore("ArticleStore", {
                     })
                     .find()
             )
-            this.articleList = articles;
+            this.articleList = articles
         },
 
         async getArticle(language: string | null, slug: string | null) {
@@ -40,8 +41,25 @@ export const useArticleStore = defineStore("ArticleStore", {
                     })
                     .findOne()
             )
-            this.article = article;
+            this.article = article
         },
+        async getPaginator(language: string, slug: string, path: string) {
+            const { data: paginator } = await useAsyncData(
+                `article-${language}-${slug}-links`,
+                () => queryContent('articles')
+                    .only([
+                        'title',
+                        'slug'
+                    ])
+                    .where({
+                        language,
+                        'isArchived': 0,
+                    })
+                    .sort({ 'order': 1 })
+                    .findSurround(path)
+            )
+            this.paginator = paginator
+        }
     },
 });
 

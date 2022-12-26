@@ -48,6 +48,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       routes: [
+        '/es/blog/articulo-no-encontrado',
         '/en/blog',
       ]
     }

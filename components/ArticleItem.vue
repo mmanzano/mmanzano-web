@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useArticleStore } from '@/stores/ArticleStore'
 import type Article from '@/interfaces/Article'
 
 interface Props {
@@ -12,25 +13,13 @@ const formatDate = (date: string): string => {
   return new Date(date).toLocaleDateString('es', options)
 }
 
-const route = useRoute()
-
 // Todo: Review later and add Typescript. I think they will add something like automatic resolution. Wait for it.
-const { data: paginator } = await useAsyncData(
-  `article-${props.article.language}-${props.article.slug}-links`,
-  () => queryContent('articles')
-    .only([
-      'title',
-      'slug'
-    ])
-    .where({
-      'language': route.params.lang,
-      'isArchived': 0,
-    })
-    .sort({ 'order': 1 })
-    .findSurround(props.article._path)
-)
-
-const [prev, next] = paginator.value
+const lang = props.article.language
+const slug = props.article.slug
+const path = props.article._path
+const ArticleStore = useArticleStore()
+await ArticleStore.getPaginator(lang, slug, path)
+const [prev, next] = ArticleStore.paginator
 </script>
 
 <template>
