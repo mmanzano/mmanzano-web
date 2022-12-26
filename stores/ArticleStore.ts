@@ -19,10 +19,11 @@ export const useArticleStore = defineStore("ArticleStore", {
                     ])
                     .where({
                         language: language || 'es',
-                        isArchived: 0
+                        isHidden: 0,
+                        isDeleted: 0
                     })
                     .sort({
-                        'order': -1
+                        order: -1
                     })
                     .find()
             )
@@ -37,7 +38,7 @@ export const useArticleStore = defineStore("ArticleStore", {
                     .where({
                         language: language || 'es',
                         slug: slug || 'articulo-no-encontrado',
-                        isArchived: 0
+                        isDeleted: 0
                     })
                     .findOne()
             )
@@ -53,9 +54,12 @@ export const useArticleStore = defineStore("ArticleStore", {
                     ])
                     .where({
                         language,
-                        'isArchived': 0,
+                        isHidden: 0,
+                        isDeleted: 0
                     })
-                    .sort({ 'order': 1 })
+                    .sort({
+                        order: 1
+                    })
                     .findSurround(path)
             )
             this.paginator = paginator
