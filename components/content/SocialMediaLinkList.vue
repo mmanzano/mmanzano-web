@@ -1,6 +1,7 @@
 <template>
     <section class="social-media-link-list">
         <SocialMediaLinkListItem media="Twitter" profile="https://twitter.com/mmanzano" />
+        <SocialMediaLinkListItem media="GitHub" profile="https://github.com/mmanzano" />
         <SocialMediaLinkListItem media="LinkedIn" profile="https://www.linkedin.com/in/miguelmanzano" />
         <SocialMediaLinkListItem media="Flickr" profile="https://www.flickr.com/photos/nesimo" />
         <SocialMediaLinkListItem media="Instagram" profile="https://www.instagram.com/mmanzano/" />

@@ -1,7 +1,7 @@
 import { RouteLocationNormalizedLoaded } from 'vue-router'
 
 export default defineNuxtRouteMiddleware((to: RouteLocationNormalizedLoaded) => {
-  const langFromRoute = useLanguageFromRoute(to)
+  const langFromRoute = usePropertyFromRoute(to, 'lang')
   if (langFromRoute === null) {
     return
   }

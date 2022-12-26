@@ -8,7 +8,7 @@ export const useSupportedNavigatorLanguage = (): { lang: string } => {
 }
 
 function getPreferredLanguage(): string {
-    const langFromRoute = useLanguageFromRoute(useRoute())
+    const langFromRoute = usePropertyFromRoute(useRoute(), 'lang')
     return langFromRoute || getLangFromNavigator()
 }
 

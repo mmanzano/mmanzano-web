@@ -1,21 +1,13 @@
 <script setup lang="ts">
 import { RouteLocationNormalizedLoaded } from "vue-router"
+import { useArticleStore } from "@/stores/ArticleStore"
+const ArticleStore = useArticleStore();
 
 const route: RouteLocationNormalizedLoaded = useRoute()
-
-// Todo: Review later and add Typescript. I think they will add something like automatic resolution. Wait for it.
-const { data: article } = await useAsyncData(
-  `article-${route.params.slug}`,
-  () => queryContent('articles')
-    .where({
-      language: route.params.lang,
-      slug: route.params.slug,
-      isArchived: 0
-    })
-    .findOne()
-)
-
-useContentHead(article)
+const lang: string | null = usePropertyFromRoute(route, 'lang')
+const slug: string | null = usePropertyFromRoute(route, 'slug')
+await ArticleStore.getArticle(lang, slug)
+useContentHead(ArticleStore.article)
 definePageMeta({
   middleware: [
     'blog-is-visible',
@@ -27,6 +19,6 @@ definePageMeta({
 
 <template>
   <div>
-    <ArticleItem :article="article" />
+    <ArticleItem :article="ArticleStore.article" />
   </div>
 </template>

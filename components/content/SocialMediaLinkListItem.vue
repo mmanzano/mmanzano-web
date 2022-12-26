@@ -8,7 +8,7 @@ defineProps<Props>()
 </script>
 
 <template>
-  <NuxtLink :to="profile">
+  <NuxtLink :to="profile" target="_blank">
     <div class="social-media-link">
       {{ media }}
     </div>

@@ -14,5 +14,7 @@
     "@vueuse/nuxt": "^9.6.0",
     "nuxt": "^3.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@pinia/nuxt": "^0.4.6"
+  }
 }
