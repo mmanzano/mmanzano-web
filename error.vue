@@ -17,16 +17,14 @@ const goHome = lang === 'es' ? 'Volver a Casa' : 'Go Home'
 </script>
 
 <template>
-  <ClientOnly>
-    <div class="w-full">
-      <MainHeader />
-      <div class="min-h-screen bg-yellow-100 px-10 py-2 text-xl">
-        <h1 class="px-10 mt-10 mb-10"><strong>{{ errorMessage }}</strong></h1>
+  <div class="w-full">
+    <MainHeader />
+    <div class="min-h-screen bg-yellow-100 px-10 py-2 text-xl">
+      <h1 class="px-10 mt-10 mb-10"><strong>{{ errorMessage }}</strong></h1>
 
-        <NuxtLink to="/" class="px-10 text-underline">
-          {{ goHome }}
-        </NuxtLink>
-      </div>
+      <NuxtLink to="/" class="px-10 text-underline">
+        {{ goHome }}
+      </NuxtLink>
     </div>
-  </ClientOnly>
+  </div>
 </template>
