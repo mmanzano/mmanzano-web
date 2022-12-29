@@ -19,7 +19,7 @@ export const useArticleStore = defineStore("ArticleStore", {
         }
     },
     actions: {
-        async getArticleList(language: string | null) {
+        async getArticleList(language: string) {
             const { data: articles } = await useAsyncData(
                 'home-articles',
                 () => queryContent('articles')
@@ -27,7 +27,7 @@ export const useArticleStore = defineStore("ArticleStore", {
                         'body',
                     ])
                     .where({
-                        language: language || 'es',
+                        language,
                         isHidden: 0,
                         isDeleted: 0
                     })
@@ -40,13 +40,13 @@ export const useArticleStore = defineStore("ArticleStore", {
             this.articleList = articles.value?.map(parseFullArticle) as Article[]
         },
 
-        async getArticle(language: string | null, slug: string | null) {
+        async getArticle(language: string, slug: string) {
             const { data: article } = await useAsyncData(
                 `article-${slug}`,
                 () => queryContent('articles')
                     .where({
-                        language: language || 'es',
-                        slug: slug || 'articulo-no-encontrado',
+                        language,
+                        slug,
                         isDeleted: 0
                     })
                     .findOne()
@@ -54,6 +54,7 @@ export const useArticleStore = defineStore("ArticleStore", {
 
             this.article = parseFullArticle(article.value) as Article
         },
+
         async getPaginator(language: string, slug: string, path: string) {
             const { data: paginator } = await useAsyncData(
                 `article-${language}-${slug}-links`,

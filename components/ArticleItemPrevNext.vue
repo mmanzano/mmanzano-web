@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type PaginationRef from '@/interfaces/PaginationRef'
+import type PaginatorRef from '@/interfaces/PaginatorRef'
 
 interface Props {
-  prev: PaginationRef,
-  next: PaginationRef,
+  prev: PaginatorRef | null,
+  next: PaginatorRef | null,
 }
 
 defineProps<Props>()

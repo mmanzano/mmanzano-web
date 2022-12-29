@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { RouteLocationNormalizedLoaded } from "vue-router"
 import { useArticleStore } from "@/stores/ArticleStore"
 const ArticleStore = useArticleStore()
 
@@ -15,8 +14,7 @@ useHead({
   title: 'Blog',
 })
 
-const route: RouteLocationNormalizedLoaded = useRoute()
-const lang = usePropertyFromRoute(route, 'lang')
+const { lang } = useSupportedNavigatorLanguage()
 await ArticleStore.getArticleList(lang)
 </script>
 

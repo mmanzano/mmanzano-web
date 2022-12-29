@@ -3,29 +3,34 @@ import { useArticleStore } from '@/stores/ArticleStore'
 import type Article from '@/interfaces/Article'
 
 interface Props {
-  article: Article,
+  article: Article | null,
 }
 
 const props = defineProps<Props>()
 
-const formatDate = (date: string): string => {
-  const options: object = { year: 'numeric', month: 'long', day: 'numeric' }
-  return new Date(date).toLocaleDateString('es', options)
-}
-
-// Todo: Review later and add Typescript. I think they will add something like automatic resolution. Wait for it.
-const lang = props.article.language
-const slug = props.article.slug
-const path = props.article._path
 const ArticleStore = useArticleStore()
-await ArticleStore.getPaginator(lang, slug, path)
-const [prev, next] = ArticleStore.paginator
+if (props.article !== null) {
+  const lang = props.article.language
+  const slug = props.article.slug
+  const path = props.article._path
+  await ArticleStore.getPaginator(lang, slug, path)
+}
+const [prev, next] = props.article ? ArticleStore.paginator : [null, null]
+
+const formatDate = (lang: string, date: string): string => {
+  const options: object = { year: 'numeric', month: 'long', day: 'numeric' }
+
+  return new Date(date).toLocaleDateString(lang, options)
+}
 </script>
 
 <template>
-  <article class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto">
+  <article class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto" v-if="article">
     <h2>{{ article.title }}</h2>
-    <p class="text-sm">Última actualización: {{ formatDate(article.updatedAt) }}</p>
+    <p class="text-sm">
+      {{ article.language === 'es' ? 'Última actualización' : 'Last Updated at' }}:
+      {{ formatDate(article.language, article.updatedAt) }}
+    </p>
 
     <ContentRenderer :value="article"></ContentRenderer>
 

@@ -4,8 +4,8 @@ import { useArticleStore } from "@/stores/ArticleStore"
 const ArticleStore = useArticleStore()
 
 const route: RouteLocationNormalizedLoaded = useRoute()
-const lang: string | null = usePropertyFromRoute(route, 'lang')
-const slug: string | null = usePropertyFromRoute(route, 'slug')
+const { lang } = useSupportedNavigatorLanguage()
+const slug: string = usePropertyFromRoute(route, 'slug') as string
 await ArticleStore.getArticle(lang, slug)
 useHead({
   title: ArticleStore.article?.title,

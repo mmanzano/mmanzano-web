@@ -5,7 +5,7 @@ interface Props {
   toc: TocItem[],
 }
 
-const props = defineProps<Props>()
+defineProps<Props>()
 </script>
 
 <template>
