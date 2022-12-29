@@ -1,5 +1,6 @@
 import { defineStore, acceptHMRUpdate } from "pinia";
 
+// Typescript issue: https://github.com/nuxt/framework/issues/6167
 export const useArticleStore = defineStore("ArticleStore", {
     state: () => {
         return {
@@ -10,7 +11,6 @@ export const useArticleStore = defineStore("ArticleStore", {
     },
     actions: {
         async getArticleList(language: string | null) {
-            // Todo: Review later and add Typescript. I think they will add something like automatic resolution. Wait for it.
             const { data: articles } = await useAsyncData(
                 'home-articles',
                 () => queryContent('articles')
@@ -31,7 +31,6 @@ export const useArticleStore = defineStore("ArticleStore", {
         },
 
         async getArticle(language: string | null, slug: string | null) {
-            // Todo: Review later and add Typescript. I think they will add something like automatic resolution. Wait for it.
             const { data: article } = await useAsyncData(
                 `article-${slug}`,
                 () => queryContent('articles')
