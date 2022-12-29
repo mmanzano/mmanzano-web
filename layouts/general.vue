@@ -5,10 +5,16 @@ useHead({
 </script>
 
 <template>
-  <div class="w-full">
+  <div class="layout__container">
     <MainHeader />
-    <div class="min-h-screen bg-yellow-100 px-10 py-2 text-xl">
+    <div class="min-h-screen bg-yellow-100 py-2 text-xl">
       <NuxtPage />
     </div>
   </div>
 </template>
+
+<style scoped>
+.layout__container {
+  width: 100%;
+}
+</style>

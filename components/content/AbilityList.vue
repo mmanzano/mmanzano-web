@@ -1,16 +1,17 @@
 <script setup lang="ts">
+const { lang } = useSupportedNavigatorLanguage()
 const abilities = [
     {
         id: 1,
-        label: 'Desarrollo Guiado por Test (TDD)',
+        label: lang === 'es' ? 'Desarrollo Guiado por Test (TDD)' : 'Test Driven Development (TDD)',
     },
     {
         id: 2,
-        label: 'Desarrollo de API',
+        label: lang === 'es' ? 'Desarrollo de API' : 'API Development',
     },
     {
         id: 3,
-        label: 'Comunicación con otras API',
+        label: lang === 'es' ? 'Comunicación con otras API' : 'Third parties communication',
     },
     {
         id: 4,
@@ -18,7 +19,7 @@ const abilities = [
     },
     {
         id: 5,
-        label: 'Queues en Laravel',
+        label: lang === 'es' ? 'Gestión de colas en Laravel' : 'Laravel Queues',
     },
     {
         id: 6,
@@ -26,51 +27,48 @@ const abilities = [
     },
     {
         id: 7,
-        label: 'Continuous Integration',
+        label: lang === 'es' ? 'Integración continua' : 'Continuous Integration',
     },
     {
         id: 8,
-        label: 'Continuous Delivery',
+        label: lang === 'es' ? 'Entrega continua' : 'Continuous Deployment',
     },
     {
         id: 9,
-        label: 'Continuous Deployment',
-    },
-    {
-        id: 10,
         label: 'Docker',
     },
     {
-        id: 11,
+        id: 10,
         label: 'PHPCSFixer',
+    },
+    {
+        id: 11,
+        label: 'Nuxt',
+    },
+    {
+        id: 12,
+        label: 'Nuxt Content',
     },
 ]
 </script>
 
 <template>
-    <div class="ability__container">
-        <ul class="ability__list">
-            <li v-for="ability in abilities" :key="ability.id" class="ability__tag">
+    <div>
+        <div class="ability__list">
+            <div v-for="ability in abilities" :key="ability.id" class="ability__tag">
                 {{ ability.label }}
-            </li>
-        </ul>
+            </div>
+        </div>
     </div>
 </template>
 
 <style scoped>
-.ability__container {
-    display: flex;
-    justify-content: center;
-}
-
 .ability__list {
-    padding-left: .1em;
-    margin-top: .1em;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: .5em;
     max-width: 1024px;
+    margin: 2rem auto;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(18rem, 80%), 1fr));
 }
 
 .ability__tag {
@@ -79,5 +77,6 @@ const abilities = [
     background-color: #555;
     color: white;
     border-radius: 1em;
+    text-align: center;
 }
 </style>

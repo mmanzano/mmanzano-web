@@ -1,9 +1,13 @@
+<script setup lang="ts">
+const { lang } = useSupportedNavigatorLanguage()
+</script>
+
 <template>
   <slot></slot>
   <div class="api-communication-diagram-box">
     <div class="client-server-box api-client">
       <div>
-        Cliente
+        {{ lang === 'es' ? 'Cliente' : 'Client' }}
       </div>
     </div>
 
@@ -11,7 +15,7 @@
       <div>
         <div class="arrow-client">
           <div class="arrow-client-text">
-            Petición
+            {{ lang === 'es' ? 'Petición' : 'Request' }}
           </div>
           <div class="arrow-draw">
             <div class="arrow-body"></div>
@@ -22,7 +26,7 @@
       <div>
         <div class="arrow-server">
           <div class="arrow-server-text">
-            Respuesta
+            {{ lang === 'es' ? 'Respuesta' : 'Response' }}
           </div>
           <div class="arrow-draw">
             <div class="arrow-head arrow-head-to-left"></div>
@@ -34,7 +38,7 @@
 
     <div class="client-server-box api-server">
       <div>
-        Servidor
+        {{ lang === 'es' ? 'Servidor' : 'Server' }}
       </div>
     </div>
   </div>
@@ -49,7 +53,7 @@
 .client-server-box {
   width: auto;
   height: 6em;
-  padding: 1em;
+  padding: .5em;
   background-color: #FCE1E5;
   display: flex;
   align-items: center;

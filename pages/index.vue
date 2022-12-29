@@ -1,10 +1,10 @@
 <script setup lang="ts">
+const { lang } = useSupportedNavigatorLanguage()
 definePageMeta({
   layout: 'general',
-  title: 'Indice',
 })
 useHead({
-  title: 'Portada',
+  title: lang === 'es' ? 'Inicio' : 'Home',
 })
 </script>
 

@@ -1,21 +1,25 @@
+<script setup lang="ts">
+const { lang } = useSupportedNavigatorLanguage()
+</script>
+
 <template>
   <slot />
   <div class="tdd-diagram-box">
     <div class="round-signal test-box">
       <div>
-        Prueba
+        {{ lang === 'es' ? 'Prueba' : 'Test' }}
       </div>
     </div>
 
     <div class="round-signal green-box">
       <div>
-        Código
+        {{ lang === 'es' ? 'Código' : 'Code' }}
       </div>
     </div>
 
     <div class="round-signal refactor-box">
       <div>
-        Mejora
+        {{ lang === 'es' ? 'Mejora' : 'Refactor' }}
       </div>
     </div>
   </div>
