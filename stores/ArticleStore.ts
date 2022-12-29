@@ -1,13 +1,13 @@
 import { defineStore, acceptHMRUpdate } from "pinia"
+import { ParsedContent } from "@nuxt/content/dist/runtime/types"
 import Article from "@/interfaces/Article"
 import Author from "@/interfaces/Author"
-import TocItem from "@/interfaces/TocItem"
 import PaginatorRef from "@/interfaces/PaginatorRef"
 
 interface ArticleStoreState {
     articleList: Article[]
     article: Article | null
-    paginator: PaginatorRef[]
+    paginator: (PaginatorRef | null)[]
 }
 
 export const useArticleStore = defineStore("ArticleStore", {
@@ -37,7 +37,7 @@ export const useArticleStore = defineStore("ArticleStore", {
                     .find()
             )
 
-            this.articleList = articles.value?.map(parseFullArticle) as Article[]
+            this.articleList = Array.isArray(articles.value) ? articles.value.map(parseFullArticle) : []
         },
 
         async getArticle(language: string, slug: string) {
@@ -52,10 +52,15 @@ export const useArticleStore = defineStore("ArticleStore", {
                     .findOne()
             )
 
-            this.article = parseFullArticle(article.value) as Article
+            this.article = article.value ? parseFullArticle(article.value) : null
         },
 
-        async getPaginator(language: string, slug: string, path: string) {
+        async getPaginator(language: string, slug: string, path: string | undefined) {
+            if (path === undefined) {
+                this.paginator = [];
+                return;
+            }
+
             const { data: paginator } = await useAsyncData(
                 `article-${language}-${slug}-links`,
                 () => queryContent('articles')
@@ -73,47 +78,40 @@ export const useArticleStore = defineStore("ArticleStore", {
                     })
                     .findSurround(path)
             )
-            this.paginator = paginator.value?.map(parsePaginator) as PaginatorRef[]
+
+            this.paginator = Array.isArray(paginator.value) ? paginator.value.map(parsePaginator) : []
         }
     },
 })
 
-function parseFullArticle(article: any): Article {
+function parseFullArticle(article: Partial<ParsedContent>): Article {
     return {
-        '_path': article._path as string,
+        '_path': article._path,
         '_type': article._type,
+        'title': article.title,
         'slug': article.slug,
         'language': article.language,
         'img': article.img,
         'alt': article.alt,
         'authors': article.authors.map(parseAuthor),
-        'title': article.title as string,
         'description': article.description,
         'body': article.body,
-        'toc': article.body?.toc?.links?.map(parseFullToc) || [],
         'updatedAt': article.updatedAt,
     }
 }
 
-function parsePaginator(article: any): PaginatorRef | null {
+function parsePaginator(article: Partial<ParsedContent>): PaginatorRef | null {
     if (!article) {
         return null
     }
 
     return {
-        slug: article.slug,
         title: article.title,
+        slug: article.slug,
     }
 }
 
-function parseFullToc(toc: any): TocItem {
-    return {
-        id: toc.id,
-        text: toc.text,
-    }
-}
-
-function parseAuthor(author: any): Author {
+function parseAuthor(author: Author): Author {
     return {
         name: author.name,
     }
