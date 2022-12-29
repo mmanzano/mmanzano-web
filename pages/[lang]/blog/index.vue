@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RouteLocationNormalizedLoaded } from "vue-router"
 import { useArticleStore } from "@/stores/ArticleStore"
-const ArticleStore = useArticleStore();
+const ArticleStore = useArticleStore()
 
 definePageMeta({
   middleware: [

@@ -1,13 +1,18 @@
 <script setup lang="ts">
 import { RouteLocationNormalizedLoaded } from "vue-router"
 import { useArticleStore } from "@/stores/ArticleStore"
-const ArticleStore = useArticleStore();
+const ArticleStore = useArticleStore()
 
 const route: RouteLocationNormalizedLoaded = useRoute()
 const lang: string | null = usePropertyFromRoute(route, 'lang')
 const slug: string | null = usePropertyFromRoute(route, 'slug')
 await ArticleStore.getArticle(lang, slug)
-useContentHead(ArticleStore.article)
+useHead({
+  title: ArticleStore.article?.title,
+  meta: [
+    { name: 'description', content: ArticleStore.article?.description }
+  ]
+})
 definePageMeta({
   middleware: [
     'blog-is-visible',

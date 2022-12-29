@@ -1,13 +1,22 @@
-import { defineStore, acceptHMRUpdate } from "pinia";
+import { defineStore, acceptHMRUpdate } from "pinia"
+import Article from "@/interfaces/Article"
+import Author from "@/interfaces/Author"
+import TocItem from "@/interfaces/TocItem"
+import PaginatorRef from "@/interfaces/PaginatorRef"
 
-// Typescript issue: https://github.com/nuxt/framework/issues/6167
+interface ArticleStoreState {
+    articleList: Article[]
+    article: Article | null
+    paginator: PaginatorRef[]
+}
+
 export const useArticleStore = defineStore("ArticleStore", {
-    state: () => {
+    state: (): ArticleStoreState => {
         return {
             articleList: [],
             article: null,
             paginator: []
-        };
+        }
     },
     actions: {
         async getArticleList(language: string | null) {
@@ -27,7 +36,8 @@ export const useArticleStore = defineStore("ArticleStore", {
                     })
                     .find()
             )
-            this.articleList = articles
+
+            this.articleList = articles.value?.map(parseFullArticle) as Article[]
         },
 
         async getArticle(language: string | null, slug: string | null) {
@@ -41,7 +51,8 @@ export const useArticleStore = defineStore("ArticleStore", {
                     })
                     .findOne()
             )
-            this.article = article
+
+            this.article = parseFullArticle(article.value) as Article
         },
         async getPaginator(language: string, slug: string, path: string) {
             const { data: paginator } = await useAsyncData(
@@ -61,11 +72,52 @@ export const useArticleStore = defineStore("ArticleStore", {
                     })
                     .findSurround(path)
             )
-            this.paginator = paginator
+            this.paginator = paginator.value?.map(parsePaginator) as PaginatorRef[]
         }
     },
-});
+})
+
+function parseFullArticle(article: any): Article {
+    return {
+        '_path': article._path as string,
+        '_type': article._type,
+        'slug': article.slug,
+        'language': article.language,
+        'img': article.img,
+        'alt': article.alt,
+        'authors': article.authors.map(parseAuthor),
+        'title': article.title as string,
+        'description': article.description,
+        'body': article.body,
+        'toc': article.body?.toc?.links?.map(parseFullToc) || [],
+        'updatedAt': article.updatedAt,
+    }
+}
+
+function parsePaginator(article: any): PaginatorRef | null {
+    if (!article) {
+        return null
+    }
+
+    return {
+        slug: article.slug,
+        title: article.title,
+    }
+}
+
+function parseFullToc(toc: any): TocItem {
+    return {
+        id: toc.id,
+        text: toc.text,
+    }
+}
+
+function parseAuthor(author: any): Author {
+    return {
+        name: author.name,
+    }
+}
 
 if (import.meta.hot) {
-    import.meta.hot.accept(acceptHMRUpdate(useArticleStore, import.meta.hot));
+    import.meta.hot.accept(acceptHMRUpdate(useArticleStore, import.meta.hot))
 }

@@ -3,6 +3,7 @@ import type Author from './Author'
 
 export default interface Article {
   _path: string,
+  _type: string,
   slug: string,
   language: string,
   img: string,
@@ -11,5 +12,6 @@ export default interface Article {
   title: string,
   toc: TocItem[],
   description: string,
+  body: any,
   updatedAt: string,
 }
