@@ -50,6 +50,7 @@ export default defineNuxtConfig({
       routes: [
         '/es/blog/articulo-no-encontrado',
         '/en/blog',
+        '/en/lab',
       ]
     }
   },
