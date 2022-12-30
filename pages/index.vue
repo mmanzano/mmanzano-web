@@ -1,14 +1,14 @@
 <script setup lang="ts">
 const { lang } = useSupportedNavigatorLanguage()
-useHead({
-  title: lang === 'es' ? 'Inicio' : 'Home',
+definePageMeta({
+  middleware: [
+    'redirect-to-language-root-from-home',
+  ],
 })
 </script>
 
 <template>
   <div>
-    <SocialMediaLinkList class="mt-8" />
-    <ServiceList class="mt-8" />
-    <AbilityList class="mt-8" />
+    <p>{{ lang === 'es' ? 'Redirigiendo...' : 'Redirecting...' }}</p>
   </div>
 </template>

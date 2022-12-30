@@ -49,8 +49,8 @@ export default defineNuxtConfig({
     prerender: {
       routes: [
         '/es/blog/articulo-no-encontrado',
-        '/en/blog',
-        '/en/lab',
+        '/en',
+        '/es',
       ]
     }
   },

@@ -7,7 +7,7 @@ const { lang } = useSupportedNavigatorLanguage()
   <div class="px-10 py-2 bg-yellow-300 flex flex-row justify-between items-start">
     <ul class="flex flex-wrap items-start text-xl underline">
       <li class="mr-2">
-        <NuxtLink to="/">{{ lang === 'es' ? 'Inicio' : 'Home' }}</NuxtLink>
+        <NuxtLink :to="{ name: 'lang', params: { lang } }">{{ lang === 'es' ? 'Inicio' : 'Home' }}</NuxtLink>
       </li>
       <li class="mr-2">
         <NuxtLink :to="{ name: 'lang-lab', params: { lang } }">Lab</NuxtLink>
