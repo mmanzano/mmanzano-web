@@ -64,11 +64,9 @@ const abilities = [
 
 <style scoped>
 .ability__list {
-    max-width: 1024px;
-    margin: 2rem auto;
     display: grid;
     gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(min(18rem, 80%), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
 }
 
 .ability__tag {

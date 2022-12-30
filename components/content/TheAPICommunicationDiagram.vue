@@ -6,7 +6,7 @@ const { lang } = useSupportedNavigatorLanguage()
   <slot></slot>
   <div class="api-communication-diagram-box">
     <div class="client-server-box api-client">
-      <div>
+      <div class="client-server-text">
         {{ lang === 'es' ? 'Cliente' : 'Client' }}
       </div>
     </div>
@@ -37,7 +37,7 @@ const { lang } = useSupportedNavigatorLanguage()
     </div>
 
     <div class="client-server-box api-server">
-      <div>
+      <div class="client-server-text">
         {{ lang === 'es' ? 'Servidor' : 'Server' }}
       </div>
     </div>
@@ -53,7 +53,7 @@ const { lang } = useSupportedNavigatorLanguage()
 .client-server-box {
   width: auto;
   height: 6em;
-  padding: .5em;
+  padding: 1.5em;
   background-color: #FCE1E5;
   display: flex;
   align-items: center;
@@ -78,7 +78,8 @@ const { lang } = useSupportedNavigatorLanguage()
 }
 
 .arrow-server-text,
-.arrow-client-text {
+.arrow-client-text,
+.client-server-text {
   display: none;
 }
 
@@ -119,6 +120,15 @@ const { lang } = useSupportedNavigatorLanguage()
 .arrow-head-to-left {
   transform: rotate(-90deg);
   -webkit-transform: rotate(-90deg);
+}
+
+@media(min-width: 300px) {
+  .client-server-text {
+    display: block;
+  }
+  .client-server-box {
+    padding: .5em;
+  }
 }
 
 @media(min-width: 921px) {

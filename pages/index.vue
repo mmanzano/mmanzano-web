@@ -1,8 +1,5 @@
 <script setup lang="ts">
 const { lang } = useSupportedNavigatorLanguage()
-definePageMeta({
-  layout: 'general',
-})
 useHead({
   title: lang === 'es' ? 'Inicio' : 'Home',
 })

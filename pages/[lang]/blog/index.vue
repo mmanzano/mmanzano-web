@@ -7,7 +7,6 @@ definePageMeta({
     'blog-is-visible',
     'redirect-if-language-is-not-supported'
   ],
-  layout: 'general',
 })
 
 useHead({

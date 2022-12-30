@@ -1,7 +1,6 @@
 <script setup lang="ts">
 definePageMeta({
   middleware: 'blog-is-visible',
-  layout: 'general',
 })
 
 // Todo: Retrieve articles from Content 2. Change that to Nuxt3 version.

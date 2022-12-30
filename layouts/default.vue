@@ -7,8 +7,10 @@ useHead({
 <template>
   <div class="layout__container">
     <MainHeader />
-    <div class="min-h-screen bg-yellow-100 py-2 text-xl">
-      <NuxtPage />
+    <div class="layout__background">
+      <div class="layout__content">
+        <NuxtPage />
+      </div>
     </div>
   </div>
 </template>
@@ -16,5 +18,15 @@ useHead({
 <style scoped>
 .layout__container {
   width: 100%;
+}
+
+.layout__background {
+  @apply min-h-screen bg-yellow-100 text-xl;
+}
+
+.layout__content {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding: 1rem;
 }
 </style>

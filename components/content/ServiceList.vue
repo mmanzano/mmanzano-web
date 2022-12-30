@@ -13,7 +13,7 @@ const tddDiagramCaption = lang === 'es' ? 'Desarrollo guiado por tests (TDD)' : 
 </script>
 
 <template>
-    <section>
+    <section class="service__list">
         <ServiceListItem>
             {{ backendDevelopmentTitle }}
             <template #body>
@@ -45,13 +45,11 @@ const tddDiagramCaption = lang === 'es' ? 'Desarrollo guiado por tests (TDD)' : 
 </template>
 
 <style scoped>
-section {
-    max-width: 1024px;
-    margin: 2rem auto;
+.service__list {
     justify-items: center;
     display: grid;
     gap: 2rem 10rem;
-    grid-template-columns: repeat(auto-fit, minmax(min(18rem, 80%), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
 }
 
 .diagram {

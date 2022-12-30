@@ -10,6 +10,9 @@ const { lang } = useSupportedNavigatorLanguage()
         <NuxtLink to="/">{{ lang === 'es' ? 'Inicio' : 'Home' }}</NuxtLink>
       </li>
       <li>
+        <NuxtLink :to="{ name: 'lang-lab', params: { lang } }">Lab</NuxtLink>
+      </li>
+      <li>
         <NuxtLink :to="{ name: 'lang-blog', params: { lang } }" v-if="config.public.blogIsVisible">Blog</NuxtLink>
       </li>
     </ul>

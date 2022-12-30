@@ -9,21 +9,19 @@ defineProps<Props>()
 </script>
 
 <template>
-  <section>
+  <div class="card__list">
     <article v-for="article in articles" :key="article.slug">
       <ArticleCard :article="article" />
     </article>
-  </section>
+  </div>
 </template>
 
 <style scoped>
-section {
-  max-width: 1024px;
-  margin: 2rem auto;
+.card__list {
   display: grid;
   justify-items: center;
   gap: 2rem;
-  grid-template-columns: repeat(auto-fill, minmax(min(18rem, 80%), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
 }
 
 article {
