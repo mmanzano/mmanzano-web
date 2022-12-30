@@ -1,9 +1,10 @@
 <script setup lang="ts">
+const { lang } = useSupportedNavigatorLanguage()
 </script>
 
 <template>
     <div>
-        <p>Comming Soon</p>
+        <p>{{ lang === 'es' ? 'Experimentos con CSS y JS' :'CSS and JS experiments' }}</p>
     </div>
 </template>
 
