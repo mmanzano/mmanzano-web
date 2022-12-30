@@ -49,7 +49,7 @@ const tddDiagramCaption = lang === 'es' ? 'Desarrollo guiado por tests (TDD)' : 
     justify-items: center;
     display: grid;
     gap: 2rem 10rem;
-    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr));
 }
 
 .diagram {

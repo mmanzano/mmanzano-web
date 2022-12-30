@@ -6,8 +6,8 @@ useHead({
 
 <template>
   <div class="layout__container">
-    <MainHeader />
     <div class="layout__background">
+      <MainHeader />
       <div class="layout__content">
         <NuxtPage />
       </div>

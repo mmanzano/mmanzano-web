@@ -53,7 +53,7 @@ const { lang } = useSupportedNavigatorLanguage()
 .client-server-box {
   width: auto;
   height: 6em;
-  padding: 1.5em;
+  padding: 1em;
   background-color: #FCE1E5;
   display: flex;
   align-items: center;
@@ -71,7 +71,7 @@ const { lang } = useSupportedNavigatorLanguage()
 }
 
 .arrows-box {
-  min-width: 3em;
+  min-width: 1.5em;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -123,9 +123,14 @@ const { lang } = useSupportedNavigatorLanguage()
 }
 
 @media(min-width: 300px) {
+  .arrows-box {
+    min-width: 3em;
+  }
+
   .client-server-text {
     display: block;
   }
+
   .client-server-box {
     padding: .5em;
   }

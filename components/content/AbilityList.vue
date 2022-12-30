@@ -66,7 +66,7 @@ const abilities = [
 .ability__list {
     display: grid;
     gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr));
 }
 
 .ability__tag {

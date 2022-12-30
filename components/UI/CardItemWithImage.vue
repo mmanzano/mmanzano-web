@@ -11,9 +11,7 @@ defineProps<CardProps>()
 
 <template>
   <div class="card">
-    <div class="card__image">
-      <img :src="imageUrl" :alt="imageAlt" />
-    </div>
+    <img :src="imageUrl" :alt="imageAlt" class="card__image" />
     <div class="card__body">
       <h2 class="card__title">{{ title }}</h2>
       <p class="card__description">{{ description }}</p>
@@ -34,8 +32,9 @@ defineProps<CardProps>()
 }
 
 .card__image {
-  max-height: 240px;
-  overflow-y: hidden;
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
 }
 
 .card__body {

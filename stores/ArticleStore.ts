@@ -57,8 +57,8 @@ export const useArticleStore = defineStore("ArticleStore", {
 
         async getPaginator(language: string, slug: string, path: string | undefined) {
             if (path === undefined) {
-                this.paginator = [];
-                return;
+                this.paginator = []
+                return
             }
 
             const { data: paginator } = await useAsyncData(
