@@ -1,7 +1,11 @@
 <script setup lang="ts">
-const { lang } = useSupportedNavigatorLanguage()
+const langFromRoute: string | null = usePropertyFromRoute(useRoute(), 'lang')
+if (langFromRoute === null || !['en', 'es'].includes(langFromRoute)) {
+  throw createError({ statusCode: 404, fatal: true })
+}
+
 useHead({
-  title: lang === 'es' ? 'Inicio' : 'Home',
+  title: langFromRoute === 'es' ? 'Inicio' : 'Home',
 })
 </script>
 
