@@ -12,7 +12,7 @@ if (slug === null) {
 await ArticleStore.getArticle(lang, slug)
 
 if (!ArticleStore.article) {
-  throw createError({ statusCode: 404 })
+  throw createError({ statusCode: 404, fatal: true })
 }
 useHead({
   title: ArticleStore.article?.title,
