@@ -1,19 +1,68 @@
 <template>
-    <section class="social-media-link-list">
-        <SocialMediaLinkListItem media="Twitter" profile="https://twitter.com/mmanzano" />
-        <SocialMediaLinkListItem media="GitHub" profile="https://github.com/mmanzano" />
-        <SocialMediaLinkListItem media="LinkedIn" profile="https://www.linkedin.com/in/miguelmanzano" />
-        <SocialMediaLinkListItem media="Flickr" profile="https://www.flickr.com/photos/nesimo" />
-        <SocialMediaLinkListItem media="Instagram" profile="https://www.instagram.com/mmanzano/" />
+    <section class="list">
+        <NuxtLink to="https://twitter.com/mmanzano" target="_blank">
+            <div class="link">
+                <img src="~/assets/icons/twitter.svg" alt="twitter logo" class="icon" />
+                <div class="icon__text">Twitter</div>
+            </div>
+        </NuxtLink>
+        <NuxtLink to="https://github.com/mmanzano" target="_blank">
+            <div class="link">
+                <img src="~/assets/icons/github.svg" alt="GitHub logo" class="icon" />
+                <div class="icon__text">GitHub</div>
+            </div>
+        </NuxtLink>
+
+        <NuxtLink to="https://www.linkedin.com/in/miguelmanzano" target="_blank">
+            <div class="link">
+                <img src="~/assets/icons/linkedin.svg" alt="LindedIn logo" class="icon" />
+                <div class="icon__text">LinkedIn</div>
+            </div>
+        </NuxtLink>
+        <NuxtLink to="https://www.flickr.com/photos/nesimo" target="_blank">
+
+            <div class="link">
+                <img src="~/assets/icons/flickr.svg" alt="Flickr logo" class="icon" />
+                <div class="icon__text">Flickr</div>
+            </div>
+        </NuxtLink>
+        <NuxtLink to="https://www.instagram.com/mmanzano/" target="_blank">
+            <div class="link">
+                <img src="~/assets/icons/instagram.svg" alt="Instagram logo" class="icon" />
+                <div class="icon__text">Instagram</div>
+            </div>
+        </NuxtLink>
     </section>
 </template>
 
 <style scoped>
-.social-media-link-list {
+.list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2em;
-    width: 100%;
+    gap: 0.5em;
+}
+
+.link {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    color: #555;
+    padding: 0.8rem;
+    border-radius: 0.4rem;
+}
+
+.icon {
+    height: 40px;
+}
+
+.icon__text {
+    display: none;
+}
+
+@media(min-width: 850px) {
+    .icon__text {
+        display: block;
+    }
 }
 </style>
