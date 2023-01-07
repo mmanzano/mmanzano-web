@@ -1,76 +1,88 @@
 <script setup lang="ts">
-const { lang } = useSupportedNavigatorLanguage()
-const abilities = {
-    'Backend': [
-        {
-            id: 1,
-            label: lang === 'es' ? 'Desarrollo de API' : 'API Development',
-        },
-        {
-            id: 2,
-            label: lang === 'es' ? 'Comunicación con API de terceros' : 'Third parties communication',
-        },
-        {
-            id: 3,
-            label: 'Docker',
-        },
-        {
-            id: 4,
-            label: 'PHPCSFixer',
-        },
-    ],
-    'Laravel': [
-        {
-            id: 5,
-            label: 'Laravel Nova',
-        },
-        {
-            id: 6,
-            label: lang === 'es' ? 'Gestión de colas en Laravel' : 'Laravel Queues',
-        },
-        {
-            id: 7,
-            label: 'Laravel Vapor',
-        },
-    ],
-    'Extreme Programming': [
-        {
-            id: 8,
-            label: lang === 'es' ? 'Desarrollo Guiado por Test (TDD)' : 'Test Driven Development (TDD)',
-        },
-        {
-            id: 9,
-            label: lang === 'es' ? 'Desarrollo en parejas' : 'Pair Programming',
-        },
-        {
-            id: 10,
-            label: lang === 'es' ? 'Integración continua' : 'Continuous Integration',
-        },
-        {
-            id: 11,
-            label: lang === 'es' ? 'Entrega continua' : 'Continuous Deployment',
-        },
-    ],
-    'Frontend': [
-        {
-            id: 12,
-            label: 'Nuxt',
-        },
-        {
-            id: 13,
-            label: 'Nuxt Content',
+const { t } = useI18n();
+const abilities = [
+    {
+        'category': t('abilities_backend'),
+        'ability_list': [
+            {
+                id: 1,
+                label: t('abilities_api_development'),
+            },
+            {
+                id: 2,
+                label: t('abilities_third_parties_communication'),
+            },
+            {
+                id: 3,
+                label: t('abilities_docker'),
+            },
+            {
+                id: 4,
+                label: t('abilities_php_cs_fixer'),
+            },
+        ],
+    },
+    {
+        'category': t('abilities_laravel'),
+        'ability_list': [
+            {
+                id: 1,
+                label: t('abilities_laravel_nova'),
+            },
+            {
+                id: 2,
+                label: t('abilities_laravel_queues'),
+            },
+            {
+                id: 3,
+                label: t('abilities_laravel_vapor'),
+            },
+        ],
+    },
+    {
+        'category': t('abilities_extreme_programming'),
+        'ability_list': [
+            {
+                id: 1,
+                label: t('abilities_test_driven_development'),
+            },
+            {
+                id: 2,
+                label: t('abilities_pair_programming'),
+            },
+            {
+                id: 3,
+                label: t('abilities_continuous_integration'),
+            },
+            {
+                id: 4,
+                label: t('abilities_continuous_deployment'),
+            },
+        ],
+    },
+    {
+        'category': t('abilities_frontend'),
+        'ability_list': [
+            {
+                id: 12,
+                label: t('abilities_nuxt'),
+            },
+            {
+                id: 13,
+                label: t('abilities_nuxt_content'),
 
-        },
-    ]
-}
+            },
+        ]
+    }
+]
 </script>
 
 <template>
     <div>
-        <div v-for="(categoryList, category) in abilities" :key="category">
-            <h2 class="title">{{ category }}</h2>
+        <div v-for="abilityGroup in abilities" :key="abilityGroup.category">
+            <h2 class="title">{{ abilityGroup.category }}</h2>
             <div class="list">
-                <div v-for="ability in categoryList" :key="ability.id" class="element">
+                <div v-for="ability in abilityGroup.ability_list" :key="ability.id" class="element">
                     {{ ability.label }}
                 </div>
             </div>

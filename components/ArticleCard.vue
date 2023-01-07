@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type Article from '@/interfaces/Article'
+const localePath = useLocalePath()
 
 interface Props {
   article: Article
@@ -14,7 +15,7 @@ const formatDate = (date: string): string => {
 </script>
 
 <template>
-  <NuxtLink :to="{ name: 'lang-blog-slug', params: { lang: article.language, slug: article.slug } }">
+  <NuxtLink :to="localePath({ name: 'blog-slug', params: { slug: article.slug } })">
     <UICardItemWithImage :image-alt="article.alt" :image-url="`/pictures/${article.img}`" :title="article.title"
       :description="article.description" :date="formatDate(article.updatedAt)" />
   </NuxtLink>

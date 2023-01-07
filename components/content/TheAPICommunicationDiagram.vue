@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { lang } = useSupportedNavigatorLanguage()
+const { t } = useI18n();
 </script>
 
 <template>
@@ -7,7 +7,7 @@ const { lang } = useSupportedNavigatorLanguage()
   <div class="api-communication-diagram-box">
     <div class="client-server-box api-client">
       <div class="client-server-text">
-        {{ lang === 'es' ? 'Cliente' : 'Client' }}
+        {{ t('api_communication_client') }}
       </div>
     </div>
 
@@ -15,7 +15,7 @@ const { lang } = useSupportedNavigatorLanguage()
       <div>
         <div class="arrow-client">
           <div class="arrow-client-text">
-            {{ lang === 'es' ? 'Petición' : 'Request' }}
+            {{ t('api_communication_request') }}
           </div>
           <div class="arrow-draw">
             <div class="arrow-body"></div>
@@ -26,7 +26,7 @@ const { lang } = useSupportedNavigatorLanguage()
       <div>
         <div class="arrow-server">
           <div class="arrow-server-text">
-            {{ lang === 'es' ? 'Respuesta' : 'Response' }}
+            {{ t('api_communication_response') }}
           </div>
           <div class="arrow-draw">
             <div class="arrow-head arrow-head-to-left"></div>
@@ -38,7 +38,7 @@ const { lang } = useSupportedNavigatorLanguage()
 
     <div class="client-server-box api-server">
       <div class="client-server-text">
-        {{ lang === 'es' ? 'Servidor' : 'Server' }}
+        {{ t('api_communication_server') }}
       </div>
     </div>
   </div>

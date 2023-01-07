@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useArticleStore } from '@/stores/ArticleStore'
 import type Article from '@/interfaces/Article'
+const { t } = useI18n()
 
 interface Props {
   article: Article | null,
@@ -28,7 +29,7 @@ const formatDate = (lang: string, date: string): string => {
   <article class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto" v-if="article">
     <h2>{{ article.title }}</h2>
     <p class="text-sm">
-      {{ article.language === 'es' ? 'Última actualización' : 'Last Updated at' }}:
+      {{ t('article_last_updated_at') }}:
       {{ formatDate(article.language, article.updatedAt) }}
     </p>
 

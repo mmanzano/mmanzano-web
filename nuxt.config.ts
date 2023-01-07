@@ -3,9 +3,9 @@ import { defineNuxtConfig } from 'nuxt/config'
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   modules: [
+    '@nuxtjs/i18n',
     '@pinia/nuxt',
     '@vueuse/nuxt',
-    // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
     '@nuxt/content',
   ],
@@ -64,4 +64,21 @@ export default defineNuxtConfig({
     shim: false,
     strict: true
   },
+
+  i18n: {
+    strategy: 'prefix',
+    detectBrowserLanguage: {
+      fallbackLocale: 'es',
+      alwaysRedirect: true,
+      redirectOn: 'root'
+    },
+    langDir: 'internationalization',
+    locales: [
+      { code: 'es', iso: 'es', file: 'es.json', dir: 'ltr' },
+      { code: 'en', iso: 'en', file: 'en.json', dir: 'ltr' },
+    ],
+    vueI18n: {
+      legacy: false,
+    }
+  }
 })

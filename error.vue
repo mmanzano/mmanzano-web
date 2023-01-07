@@ -3,10 +3,11 @@ defineProps({
   error: Object,
 })
 
-const { lang } = useSupportedNavigatorLanguage()
-const titleMessage = lang === 'es' ? 'Pagina no encontrada' : 'Page not found';
-const errorMessage = lang === 'es' ? 'Lo sentimos, no hemos podido encontrar la página que está buscando' : 'Sorry, we cannot find the page you are looking for.'
-const goHome = lang === 'es' ? 'Volver a Casa' : 'Go Home'
+const { t } = useI18n()
+const localePath = useLocalePath()
+const titleMessage = t('error_page_not_found')
+const errorMessage = t('error_page_not_found_headline')
+const goHome = t('error_go_home')
 useHead({
   title: `${titleMessage} - Miguel Manzano`
 })
@@ -19,7 +20,7 @@ useHead({
       <div class="layout__content">
         <h1 class="px-10 mt-10 mb-10"><strong>{{ errorMessage }}</strong></h1>
 
-        <NuxtLink :to="{ name: 'lang', params: { lang } }" class="px-10 underline">
+        <NuxtLink :to="localePath('/')" class="px-10 underline">
           {{ goHome }}
         </NuxtLink>
       </div>

@@ -1,12 +1,12 @@
 <script setup lang="ts">
-const { lang } = useSupportedNavigatorLanguage();
+const { t } = useI18n()
 useHead({
-  title: lang === 'es' ? 'Licencias' : 'Licenses'
+    title: t('licenses')
 })
 </script>
 <template>
     <div>
-        <h2 class="title">{{ lang === 'es' ? 'Licencias' : 'Licenses' }}</h2>
+        <h2 class="title">{{ t('licenses') }}</h2>
 
         <h3 class="element">Twitter Icon</h3>
         <img src="~/assets/icons/twitter.svg" alt="twitter logo" class="icon" />

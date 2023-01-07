@@ -1,14 +1,20 @@
 <script setup lang="ts">
-const { lang } = useSupportedNavigatorLanguage()
-definePageMeta({
-  middleware: [
-    'redirect-to-language-root-from-home',
-  ],
+const localePath = useLocalePath()
+const { t } = useI18n()
+useHead({
+  title: t('home'),
 })
 </script>
 
 <template>
   <div>
-    <p>{{ lang === 'es' ? 'Redirigiendo...' : 'Redirecting...' }}</p>
+    <ServiceList class="mt-8" />
+    <AbilityList class="mt-8" />
+    <SocialMediaLinkList class="mt-8" />
+    <div class="text-center text-xl">
+      <NuxtLink :to="localePath('/licenses')" class="mt-8 underline">
+        {{ t('licenses') }}
+      </NuxtLink>
+    </div>
   </div>
 </template>

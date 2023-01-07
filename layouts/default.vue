@@ -2,17 +2,35 @@
 useHead({
   titleTemplate: (title) => title ? `${title} - Miguel Manzano` : 'Miguel Manzano'
 })
+const head = useLocaleHead({
+  addDirAttribute: true,
+  identifierAttribute: 'id',
+  addSeoAttributes: true
+})
 </script>
 
 <template>
-  <div class="layout__container">
+  <Html :lang="head.htmlAttrs?.lang" :dir="head.htmlAttrs?.dir">
+
+  <Head>
+    <template v-for="link in head.link" :key="link.id">
+      <Link :id="link.id" :rel="link.rel" :href="link.href" :hreflang="link.hreflang" />
+    </template>
+    <template v-for="meta in head.meta" :key="meta.id">
+      <Meta :id="meta.id" :property="meta.property" :content="meta.content" />
+    </template>
+  </Head>
+
+  <Body>
     <div class="layout__background">
       <MainHeader />
       <div class="layout__content">
         <NuxtPage />
       </div>
     </div>
-  </div>
+  </Body>
+
+  </Html>
 </template>
 
 <style scoped>
