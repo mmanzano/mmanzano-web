@@ -1,42 +1,32 @@
 <script setup lang="ts">
-const { lang } = useSupportedNavigatorLanguage()
-const backendDevelopmentTitle = lang === 'es' ? 'Desarrollo backend' : 'Backend Development'
-const backendDevelopmentDescription = lang === 'es'
-    ? "En mi día a día desarrollo, en equipo, la parte backend de diversas aplicaciones que tienen una página web o una aplicación móvil."
-    : "I usually develop, within a team, the backend side of several applications which have a web page or a mobile app."
-const httpRequestCaption = lang === 'es' ? 'Petición HTTP' : 'HTTP Request'
-const goodPracticesTitle = lang === 'es' ? 'Buenas prácticas' : 'Good practices'
-const goodPracticesDescription = lang === 'es'
-    ? 'Soy parte de diferentes comunidades que apuestan por la mejora continua. Intento llevar estos aprendizajes a los proyectos donde participo como desarrollador o lead.'
-    : 'I belong to several communities which work in continuous improvement. I try to bring those learnings to the project where I work as a developer or a lead.'
-const tddDiagramCaption = lang === 'es' ? 'Desarrollo guiado por tests (TDD)' : 'Test Driven Development'
+const { t } = useI18n()
 </script>
 
 <template>
     <section class="service__list">
         <ServiceListItem>
-            {{ backendDevelopmentTitle }}
+            {{ t('backend_development_title') }}
             <template #body>
                 <div>
-                    {{ backendDevelopmentDescription }}
+                    {{ t('backend_development_description') }}
                 </div>
                 <div class="diagram">
                     <TheAPICommunicationDiagram>
-                        <p class="diagram__text">{{ httpRequestCaption }}</p>
+                        <p class="diagram__text">{{ t('http_request_caption') }}</p>
                     </TheAPICommunicationDiagram>
                 </div>
             </template>
         </ServiceListItem>
 
         <ServiceListItem>
-            {{ goodPracticesTitle }}
+            {{ t('good_practices_title') }}
             <template #body>
                 <div>
-                    {{ goodPracticesDescription }}
+                    {{ t('good_practices_description') }}
                 </div>
                 <div class="diagram">
                     <TheTDDDiagram>
-                        <p class="diagram__text">{{ tddDiagramCaption }}</p>
+                        <p class="diagram__text">{{ t('tdd_diagram_caption') }}</p>
                     </TheTDDDiagram>
                 </div>
             </template>

@@ -5,7 +5,6 @@ const ArticleStore = useArticleStore()
 definePageMeta({
   middleware: [
     'blog-is-visible',
-    'redirect-if-language-is-not-supported'
   ],
 })
 
@@ -13,8 +12,8 @@ useHead({
   title: 'Blog',
 })
 
-const { lang } = useSupportedNavigatorLanguage()
-await ArticleStore.getArticleList(lang)
+const { locale } = useI18n()
+await ArticleStore.getArticleList(locale.value)
 </script>
 
 <template>

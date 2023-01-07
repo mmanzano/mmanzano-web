@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { lang } = useSupportedNavigatorLanguage()
+const { t } = useI18n()
 </script>
 
 <template>
@@ -8,7 +8,7 @@ const { lang } = useSupportedNavigatorLanguage()
     <div class="round-signal test-box">
       <div>
         <div class="box-text">
-          {{ lang === 'es' ? 'Prueba' : 'Test' }}
+          {{ t('tdd_diagram_test') }}
         </div>
       </div>
     </div>
@@ -16,7 +16,7 @@ const { lang } = useSupportedNavigatorLanguage()
     <div class="round-signal green-box">
       <div>
         <div class="box-text">
-          {{ lang === 'es' ? 'Código' : 'Code' }}
+          {{ t('tdd_diagram_code') }}
         </div>
       </div>
     </div>
@@ -24,7 +24,7 @@ const { lang } = useSupportedNavigatorLanguage()
     <div class="round-signal refactor-box">
       <div>
         <div class="box-text">
-          {{ lang === 'es' ? 'Mejora' : 'Refactor' }}
+          {{ t('tdd_diagram_refactor') }}
         </div>
       </div>
     </div>
