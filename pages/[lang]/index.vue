@@ -15,7 +15,7 @@ useHead({
     <AbilityList class="mt-8" />
     <SocialMediaLinkList class="mt-8" />
     <div class="text-center text-xl">
-      <NuxtLink :to="{ name: 'lang-licenses', params: { langFromRoute } }" class="mt-8 underline">
+      <NuxtLink :to="{ name: 'lang-licenses', params: { lang: langFromRoute } }" class="mt-8 underline">
         {{ langFromRoute === 'es' ? 'Licencias' : 'Licenses' }}
       </NuxtLink>
     </div>
