@@ -46,11 +46,11 @@ export default defineNuxtConfig({
   },
 
   nitro: {
+    preset: 'netlify',
     prerender: {
       routes: [
-        '/es/blog/articulo-no-encontrado',
-        '/en',
         '/es',
+        '/en',
       ]
     }
   },
