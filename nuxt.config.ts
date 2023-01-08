@@ -68,7 +68,7 @@ export default defineNuxtConfig({
   i18n: {
     strategy: 'prefix',
     detectBrowserLanguage: {
-      fallbackLocale: 'es',
+      fallbackLocale: 'en',
       alwaysRedirect: true,
       redirectOn: 'root'
     },
