@@ -12,8 +12,8 @@ useHead({
   title: 'Blog',
 })
 
-const { locale } = useI18n()
-await ArticleStore.getArticleList(locale.value)
+const route = useRoute()
+await ArticleStore.getArticleList(route.fullPath.split('/')[1])
 </script>
 
 <template>

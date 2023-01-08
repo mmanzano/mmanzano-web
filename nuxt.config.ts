@@ -46,11 +46,11 @@ export default defineNuxtConfig({
   },
 
   nitro: {
+    preset: 'netlify',
     prerender: {
       routes: [
-        '/es/blog/articulo-no-encontrado',
-        '/en',
         '/es',
+        '/en',
       ]
     }
   },
@@ -68,10 +68,11 @@ export default defineNuxtConfig({
   i18n: {
     strategy: 'prefix',
     detectBrowserLanguage: {
-      fallbackLocale: 'es',
+      fallbackLocale: 'en',
       alwaysRedirect: true,
       redirectOn: 'root'
     },
+    defaultLocale: 'en',
     langDir: 'internationalization',
     locales: [
       { code: 'es', iso: 'es', file: 'es.json', dir: 'ltr' },
