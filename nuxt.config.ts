@@ -72,6 +72,7 @@ export default defineNuxtConfig({
       alwaysRedirect: true,
       redirectOn: 'root'
     },
+    defaultLocale: 'en',
     langDir: 'internationalization',
     locales: [
       { code: 'es', iso: 'es', file: 'es.json', dir: 'ltr' },
