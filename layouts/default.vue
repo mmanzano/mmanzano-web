@@ -1,4 +1,5 @@
 <script setup lang="ts">
+await useLocaleFromRoute()
 useHead({
   titleTemplate: (title) => title ? `${title} - Miguel Manzano` : 'Miguel Manzano'
 })

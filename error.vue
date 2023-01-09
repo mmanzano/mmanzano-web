@@ -2,7 +2,7 @@
 defineProps({
   error: Object,
 })
-
+await useLocaleFromRoute()
 const { t } = useI18n()
 const localePath = useLocalePath()
 const titleMessage = t('error_page_not_found')
