@@ -1,5 +1,6 @@
 {
     "home": "Home",
+    "blog": "Blog",
     "welcome": "Welcome",
     "moto": "Seeking the missed semicolom",
     "moto_headline": "API development with automated tests using Laravel",

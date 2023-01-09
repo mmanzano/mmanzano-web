@@ -2,6 +2,8 @@
 const localePath = useLocalePath()
 const config = useRuntimeConfig()
 const { t } = useI18n()
+const route = useRoute()
+const language = route.fullPath.split('/')[1]
 </script>
 
 <template>
@@ -14,7 +16,8 @@ const { t } = useI18n()
         <NuxtLink :to="localePath('/lab')">Lab</NuxtLink>
       </li>
       <li>
-        <NuxtLink :to="localePath('/blog')" v-if="config.public.blogIsVisible">Blog</NuxtLink>
+        <NuxtLink :to="localePath(language === 'en' ? '/blog' : 'bitacora')" v-if="config.public.blogIsVisible">{{ t('blog') }}
+        </NuxtLink>
       </li>
     </ul>
   </div>

@@ -1,5 +1,6 @@
 {
     "home": "Inicio",
+    "blog": "Bitácora",
     "welcome": "Bienvenido",
     "moto": "En busca del punto y coma perdido",
     "moto_headline": "Desarrollo API usando tests automáticos con Laravel",

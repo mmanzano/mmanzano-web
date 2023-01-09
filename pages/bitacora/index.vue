@@ -15,7 +15,7 @@ useHead({
 const route = useRoute()
 await ArticleStore.getArticleList(route.fullPath.split('/')[1])
 defineI18nRoute({
-  locales: ['en']
+  locales: ['es']
 })
 </script>
 
