@@ -12,10 +12,11 @@ const formatDate = (date: string): string => {
   return new Date(date).toLocaleDateString(props.article.language, options)
 }
 const route = useRoute();
+const blogSection = props.article.language === 'en' ? 'blog' : 'bitacora'
 </script>
 
 <template>
-  <NuxtLink :to="`/${route.fullPath.split('/')[1]}/blog/${article.slug}`">
+  <NuxtLink :to="`/${route.fullPath.split('/')[1]}/${blogSection}/${article.slug}`">
     <UICardItemWithImage :image-alt="article.alt" :image-url="`/pictures/${article.img}`" :title="article.title"
       :description="article.description" :date="formatDate(article.updatedAt)" />
   </NuxtLink>

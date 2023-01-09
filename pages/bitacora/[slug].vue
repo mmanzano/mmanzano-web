@@ -25,7 +25,7 @@ definePageMeta({
   ],
 })
 defineI18nRoute({
-  locales: ['en']
+  locales: ['es']
 })
 </script>
 
