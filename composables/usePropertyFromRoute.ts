@@ -5,9 +5,10 @@ export const usePropertyFromRoute = (to: RouteLocationNormalizedLoaded, property
         return null
     }
 
-    if (Array.isArray(to.params[property])) {
-        return to.params[property][0]
+    const value: string | string[] = to.params[property]
+    if (Array.isArray(value)) {
+        return value[0]
     }
 
-    return to.params[property] as string
+    return value
 }
