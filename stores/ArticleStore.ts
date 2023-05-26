@@ -55,7 +55,7 @@ export const useArticleStore = defineStore("ArticleStore", {
             this.article = article.value ? parseFullArticle(article.value) : null
         },
 
-        async getPaginator(language: string, slug: string, path: string | undefined) {
+        async getPaginator(language: string, slug: string, path?: string) {
             if (path === undefined) {
                 this.paginator = []
                 return

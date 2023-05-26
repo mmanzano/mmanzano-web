@@ -2,7 +2,7 @@
 interface CardProps {
   imageUrl: string,
   imageAlt: string,
-  title: string | undefined,
+  title?: string,
   description: string,
   date: string,
 }

@@ -1,9 +1,9 @@
 import type Author from './Author'
 
 export default interface Article {
-  _path: string | undefined,
-  _type: string | undefined,
-  title: string | undefined,
+  _path?: string,
+  _type?: string,
+  title?: string,
   slug: string,
   language: string,
   img: string,

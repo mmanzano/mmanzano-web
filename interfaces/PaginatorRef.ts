@@ -1,4 +1,4 @@
 export default interface PaginatorRef {
-  title: string | undefined,
+  title?: string,
   slug: string,
 }
