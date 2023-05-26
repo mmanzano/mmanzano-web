@@ -13,7 +13,7 @@
     "@tailwindcss/typography": "^0.5.7",
     "@vueuse/core": "^9.6.0",
     "@vueuse/nuxt": "^9.6.0",
-    "nuxt": "^3.0.0"
+    "nuxt": "^3.5.1"
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.6"
