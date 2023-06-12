@@ -18,14 +18,14 @@ useHead({
     <div class="layout__background">
       <MainHeader />
       <div class="layout__content">
-        <h1 class="px-10 mt-10 mb-10"><strong>{{ errorMessage }}</strong></h1>
+        <h1 class="error__message"><strong>{{ errorMessage }}</strong></h1>
 
-        <NuxtLink :to="localePath('/')" class="px-10 underline">
-          {{ goHome }}
-        </NuxtLink>
+        <NuxtLink :to="localePath('/')" class="error__link">
+            {{ goHome }}
+          </NuxtLink>
+        </div>
       </div>
     </div>
-  </div>
 </template>
 
 <style scoped>
@@ -34,12 +34,25 @@ useHead({
 }
 
 .layout__background {
-  @apply min-h-screen bg-yellow-100 text-xl;
+  min-height: 100vh;
+  font-size: 1.25rem;
+  background-color: rgb(254 249 195 / 1);
 }
 
 .layout__content {
   margin: 0 auto;
   max-width: 1024px;
   padding: 1rem;
+}
+
+.error__message {
+  padding: 0px 2.5rem;
+  margin: 0px 2.5rem;
+}
+
+.error__link {
+  padding: 0px 2.5rem;
+  margin: 0px 2.5rem;
+  text-decoration: underline;
 }
 </style>
