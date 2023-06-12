@@ -6,12 +6,12 @@ const language = route.fullPath.split('/')[1]
 </script>
 
 <template>
-  <div class="px-10 py-2 bg-yellow-300 flex flex-row justify-between items-start">
-    <ul class="flex flex-wrap items-start text-xl underline">
-      <li class="mr-2">
+  <div class="navigation">
+    <ul class="menu">
+      <li class="menu__item">
         <NuxtLink :to="language === 'en' ? '/en' : '/es'">{{ t('home', language) }}</NuxtLink>
       </li>
-      <!-- <li class="mr-2">
+      <!-- <li class="menu__item">
         <NuxtLink :to="language === 'en' ? '/en/lab' : '/es/lab'">Lab</NuxtLink>
       </li> -->
       <li>
@@ -23,3 +23,30 @@ const language = route.fullPath.split('/')[1]
     </ul>
   </div>
 </template>
+
+<style scoped>
+.navigation {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  background-color: rgb(253 224 71 / 1);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  text-decoration: underline;
+}
+
+.menu__item {
+  margin-right: 0.5rem;
+}
+</style>
