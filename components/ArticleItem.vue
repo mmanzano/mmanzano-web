@@ -26,14 +26,14 @@ const formatDate = (lang: string, date: string): string => {
 </script>
 
 <template>
-  <article class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto" v-if="article">
-    <h2>{{ article.title }}</h2>
-    <p class="text-sm">
+  <article v-if="article">
+    <h2 class="article-title">{{ article.title }}</h2>
+    <p class="article-date">
       {{ t('article_last_updated_at') }}:
       {{ formatDate(article.language, article.updatedAt) }}
     </p>
 
-    <ContentRenderer :value="article"></ContentRenderer>
+    <ContentRenderer class="article-body" :value="article"></ContentRenderer>
 
     <ArticleItemAuthor v-for="author in article.authors" :key="author.name" :author="author" />
 
@@ -41,13 +41,23 @@ const formatDate = (lang: string, date: string): string => {
   </article>
 </template>
 
-<style lang="css">
-/* box with code style */
-.nuxt-content-highlight {
-  @apply relative;
+<style scoped>
+.article-title {
+  font-size: 2em;
+  line-height: 2em;
 }
 
-.nuxt-content-highlight .filename {
-  @apply absolute right-0 text-gray-600 font-light z-10 mr-2 mt-1 text-sm;
+.article-date {
+  font-size: 0.8em;
+  line-height: 2em;
+}
+
+.article-body {
+  font-size: 1em;
+  line-height: 2em;
+}
+
+.article-body p {
+  margin-bottom: 1em;
 }
 </style>
