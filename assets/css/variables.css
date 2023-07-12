@@ -2,6 +2,9 @@
   --layout-bg-color: rgb(254 249 195 / 1);
   --menu-button-bg-color: rgb(253 224 71 / 0.6);
   --menu-button-bg-color-hover: rgb(253 224 71 / 1);
+  --hero-moto-bg-color: rgb(254 240 138 / 0.7);
+  --hero-creator-bg-color: rgb(254 240 138 / 0.4);
+  --headline-bg-color: rgb(253 224 71 /1);
   --font-weight-normal: 400;
   --font-weight-bold: 700;
   --font-size-1: 1rem;
