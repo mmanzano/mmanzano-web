@@ -48,6 +48,7 @@ const { t } = useI18n();
 .api-communication-diagram-box {
   display: flex;
   align-items: center;
+  font-size: var(--font-size-2);
 }
 
 .client-server-box {

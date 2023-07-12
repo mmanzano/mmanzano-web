@@ -12,7 +12,7 @@ useHead({
     <AbilityList class="abilty-list" />
     <SocialMediaLinkList class="social-media-list" />
     <div class="licenses">
-      <NuxtLink :to="localePath('/licenses')" class="mt-8 underline">
+      <NuxtLink :to="localePath('/licenses')">
         {{ t('licenses') }}
       </NuxtLink>
     </div>
@@ -33,6 +33,12 @@ useHead({
 
 .licenses {
   text-align: center;
-  font-size: 1.25rem;
+  font-size: var(--font-size-2);
   line-height: 1.75rem;
-}</style>
+  color: black;
+}
+.licenses a {
+  text-decoration: none;
+  color: black;
+}
+</style>

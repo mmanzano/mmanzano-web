@@ -36,6 +36,7 @@ const { t } = useI18n()
   width: 7rem;
   height: 7rem;
   position: relative;
+  font-size: var(--font-size-2);
 }
 
 .round-signal {
@@ -47,7 +48,6 @@ const { t } = useI18n()
   align-items: center;
   justify-content: center;
   letter-spacing: 2px;
-  font-size: 16px;
   color: white;
 }
 
@@ -79,8 +79,8 @@ const { t } = useI18n()
   }
 
   .tdd-diagram-box {
-    width: 12rem;
-    height: 12rem;
+    width: 12.5rem;
+    height: 12.5rem;
   }
 
   .round-signal {

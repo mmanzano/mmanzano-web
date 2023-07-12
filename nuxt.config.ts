@@ -6,8 +6,13 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@pinia/nuxt',
     '@vueuse/nuxt',
-    '@nuxtjs/tailwindcss',
     '@nuxt/content',
+  ],
+
+  css: [
+    '~/assets/css/variables.css',
+    '~/assets/css/fonts.css',
+    '~/assets/css/reset.css',
   ],
 
   components: {

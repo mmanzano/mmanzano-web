@@ -18,14 +18,16 @@
 }
 
 .service-container__title {
-    font-size: 1.5rem;
+    font-size: var(--font-size-3);
     line-height: 2rem;
-    padding-bottom: 1rem;
-    border-bottom-width: 2px;
-    border-color: rgb(255 255 255 / 1);
+    padding-bottom: .5rem;
+    border-width: 0px 0px 2px 0px;
+    border-style: solid;
+    border-color: rgb(255 255 255 / 0.8);
 }
 
 .service-container__body {
+    font-size: var(--font-size-2);
     margin-top: 0.5rem;
     padding-top: 1rem;
 }

@@ -25,12 +25,12 @@ const { t } = useI18n();
 }
 
 .moto {
-  font-size: 2.25rem;
+  font-size: var(--font-size-5);
   line-height: 2.5rem;
 }
 
 .creator {
-  font-size: 1.25rem;
+  font-size: var(--font-size-2);
   line-height: 1.75rem;
 }
 
@@ -41,7 +41,7 @@ const { t } = useI18n();
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: var(--font-size-3);
   line-height: 2rem;
   color: rgb(55 65 81 / 1);
 }

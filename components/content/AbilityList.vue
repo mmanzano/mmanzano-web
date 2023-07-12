@@ -79,7 +79,7 @@ const abilities = [
 
 <template>
     <div>
-        <div v-for="abilityGroup in abilities" :key="abilityGroup.category">
+        <div class="group" v-for="abilityGroup in abilities" :key="abilityGroup.category">
             <h2 class="title">{{ abilityGroup.category }}</h2>
             <div class="list">
                 <div v-for="ability in abilityGroup.ability_list" :key="ability.id" class="element">
@@ -91,14 +91,21 @@ const abilities = [
 </template>
 
 <style scoped>
+.group {
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
 .title {
+    font-size: var(--font-size-2);
+    font-weight: var(--font-weight-bold);
     width: fit-content;
     padding: 0.5em 1em;
     border-radius: 1em;
     color: #eee;
     background-color: #666;
-    margin: 1.5em auto 1em;
+    margin: 1em auto;
     text-align: center;
+
 }
 
 .list {
@@ -106,12 +113,14 @@ const abilities = [
     flex-wrap: wrap;
     justify-content: center;
     gap: 1em;
+    font-size: 1rem;
 }
 
 .element {
+    font-size: var(--font-size-1);
     text-align: center;
     color: #666;
-    padding: 0.8rem;
+    padding: 0.5em 1em;
     border-radius: 1rem;
     border: #999 solid 1px;
 }

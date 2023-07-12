@@ -42,7 +42,7 @@ defineProps<CardProps>()
 }
 
 .card__title {
-  font-weight: 800;
+  font-weight: var(--font-weight-bold);
   font-size: 1.5em;
   padding: .5em 0em;
 }

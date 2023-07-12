@@ -36,7 +36,7 @@ useHead({
 .layout__background {
   min-height: 100vh;
   font-size: 1.25rem;
-  background-color: rgb(254 249 195 / 1);
+  background-color: var(--layout-bg-color);
 }
 
 .layout__content {

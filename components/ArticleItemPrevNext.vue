@@ -33,7 +33,7 @@ const blogSlug = language === 'en' ? 'blog' : 'bitacora'
 }
 
 .article-list__item {
-  font-weight: 800;
+  font-weight: var(--font-weight-bold);
 }
 
 .article-list__item:hover {
