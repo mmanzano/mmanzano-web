@@ -46,7 +46,7 @@ const { t } = useI18n();
   padding: 0.2rem;
   margin-bottom: 0.5em;
   text-align: center;
-  font-size: var(--font-size-1);
+  font-size: var(--font-size-2);
 }
 
 

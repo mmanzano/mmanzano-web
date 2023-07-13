@@ -26,38 +26,65 @@ const formatDate = (lang: string, date: string): string => {
 </script>
 
 <template>
-  <article v-if="article">
-    <h2 class="article-title">{{ article.title }}</h2>
-    <p class="article-date">
+  <article v-if="article" class="article-item">
+    <h2 class="article-item--title">{{ article.title }}</h2>
+
+    <ContentRenderer class="article-item--body" :value="article"></ContentRenderer>
+
+    <img :src="`/pictures/${article.img}`" />
+    <ArticleItemAuthor v-for="author in article.authors" :key="author.name" :author="author" />
+    <p class="article-item--date">
       {{ t('article_last_updated_at') }}:
       {{ formatDate(article.language, article.updatedAt) }}
     </p>
-
-    <ContentRenderer class="article-body" :value="article"></ContentRenderer>
-
-    <ArticleItemAuthor v-for="author in article.authors" :key="author.name" :author="author" />
-
     <ArticleItemPrevNext :prev="prev" :next="next" />
   </article>
 </template>
 
-<style scoped>
-.article-title {
-  font-size: 2em;
-  line-height: 2em;
+<style>
+.article-item {
+  padding: 0.1rem 1rem;
 }
 
-.article-date {
-  font-size: 0.8em;
-  line-height: 2em;
+.article-item--title {
+  font-family: "RhodiumLibre", "Roboto", Arial, Helvetica, sans-serif;
+  font-size: var(--font-size-4);
+  line-height: 1.5em;
+  border-bottom: 2px solid var(--menu-button-bg-color);
 }
 
-.article-body {
-  font-size: 1em;
-  line-height: 2em;
+.article-item--date {
+  font-size: var(--font-size-1);
+  line-height: 1.5em;
 }
 
-.article-body p {
+.article-item--body {
+  font-size: var(--font-size-2);
+  margin-top: 1em;
+  line-height: 1.5em;
+}
+
+.article-item--body p {
   margin-bottom: 1em;
+}
+
+@media(min-width: 750px) {
+  .article-item {
+    padding: 0rem 0.5rem 0.5rem;
+  }
+
+  .article-item--title {
+    font-size: var(--font-size-5);
+  }
+
+  .article-item--body {
+    font-size: var(--font-size-2);
+    margin-top: 2em;
+    line-height: 2em;
+  }
+
+  .article-item--body p {
+    margin-bottom: 2em;
+  }
 }
 </style>
