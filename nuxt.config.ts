@@ -52,18 +52,19 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    preset: 'netlify',
+    routeRules: {
+      // Static page generated on-demand once
+      '/**': { isr: true },
+      '/es/**': { isr: true },
+      '/en/**': { isr: true }
+    },
     prerender: {
+      crawlLinks: true,
       routes: [
         '/es',
         '/en',
       ]
     }
-  },
-
-  routeRules: {
-    // Static page generated on-demand once
-    '/**': { static: true },
   },
 
   typescript: {
@@ -83,6 +84,6 @@ export default defineNuxtConfig({
   },
 
   devtools: {
-    enabled: true
+    enabled: false
   }
 })
