@@ -34,7 +34,7 @@ const { t } = useI18n();
   font-family: 'RhodiumLibre', 'Roboto', Arial, Helvetica, sans-serif;
   padding: 0rem 0.5rem 0.5rem;
   text-align: center;
-  font-size: var(--font-size-3);
+  font-size: var(--font-size-5);
 }
 
 .semicolon {
@@ -53,8 +53,8 @@ const { t } = useI18n();
 @media(min-width: 750px) {
   .moto {
     padding: 0rem 0.5rem 0.5rem;
-    font-size: var(--font-size-5);
     text-align: left;
+    font-size: var(--font-size-6);
   }
 
   .creator {

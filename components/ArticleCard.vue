@@ -16,8 +16,14 @@ const blogSection = props.article.language === 'en' ? 'blog' : 'bitacora'
 </script>
 
 <template>
-  <NuxtLink :to="`/${route.fullPath.split('/')[1]}/${blogSection}/${article.slug}`">
+  <NuxtLink :to="`/${route.fullPath.split('/')[1]}/${blogSection}/${article.slug}`" class="article-card">
     <UICardItemWithImage :image-alt="article.alt" :image-url="`/pictures/${article.img}`" :title="article.title"
       :description="article.description" :date="formatDate(article.updatedAt)" />
   </NuxtLink>
 </template>
+
+<style scoped>
+.article-card {
+  text-decoration: none;
+}
+</style>
