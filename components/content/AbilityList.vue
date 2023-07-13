@@ -101,8 +101,7 @@ const abilities = [
     width: fit-content;
     padding: 0.5em 1em;
     border-radius: 1em;
-    color: #eee;
-    background-color: #666;
+    background-color: var(--menu-button-bg-color-hover);
     margin: 1em auto;
     text-align: center;
 
@@ -118,10 +117,9 @@ const abilities = [
 
 .element {
     font-size: var(--font-size-1);
+    background-color: var(--menu-button-bg-color);
     text-align: center;
-    color: #666;
-    padding: 0.5em 1em;
+    padding: 0.7em 1.2em;
     border-radius: 1rem;
-    border: #999 solid 1px;
 }
 </style>

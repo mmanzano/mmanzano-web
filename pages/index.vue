@@ -9,6 +9,7 @@ useHead({
 <template>
   <div>
     <ServiceList class="service-list" />
+    <Headline class="headline-section" />
     <AbilityList class="abilty-list" />
     <SocialMediaLinkList class="social-media-list" />
     <div class="licenses">
@@ -21,14 +22,17 @@ useHead({
 
 <style scoped>
 .service-list {
-  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.headline-section {
+  margin-bottom: 2rem;
 }
 .ability-list {
-  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .social-media-list {
-  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 .licenses {

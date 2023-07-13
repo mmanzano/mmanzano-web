@@ -12,14 +12,14 @@ const language = route.fullPath.split('/')[1]
         <NuxtLink :to="language === 'en' ? '/en' : '/es'" class="menu__item">{{ t('home', language) }}</NuxtLink>
       </li>
       <!-- <li class="menu__item">
-        <NuxtLink :to="language === 'en' ? '/en/lab' : '/es/lab'">Lab</NuxtLink>
+        <NuxtLink :to="language === 'en' ? '/en/lab' : '/es/lab'" class="menu__item">Lab</NuxtLink>
       </li> -->
-      <!-- <li>
-        <NuxtLink :to="language === 'en' ? '/en/blog' : '/es/bitacora'" v-if="config.public.blogIsVisible">{{
+      <li>
+        <NuxtLink :to="language === 'en' ? '/en/blog' : '/es/bitacora'" v-if="config.public.blogIsVisible" class="menu__item">{{
           t('blog')
         }}
         </NuxtLink>
-      </li> -->
+      </li>
     </ul>
   </div>
 </template>

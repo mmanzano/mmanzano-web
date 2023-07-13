@@ -16,9 +16,6 @@ const { t } = useI18n();
         Miguel Manzano García
       </h2>
     </div>
-    <h3 class="headline">
-      {{ t('moto_headline') }}
-    </h3>
   </div>
 </template>
 
@@ -52,16 +49,6 @@ const { t } = useI18n();
   font-size: var(--font-size-1);
 }
 
-.headline {
-  font-family: 'RhodiumLibre', 'Roboto', Arial, Helvetica, sans-serif;
-  margin: 0 auto;
-  padding: 0.5rem 0.3em;
-  max-width: 35rem;
-  text-align: center;
-  font-size: var(--font-size-2);
-  border-top: 2px solid var(--headline-bg-color);
-  border-bottom: 2px solid var(--headline-bg-color);
-}
 
 @media(min-width: 750px) {
   .moto {
@@ -75,10 +62,6 @@ const { t } = useI18n();
     margin-bottom: 0.5em;
     font-size: var(--font-size-3);
     text-align: left;
-  }
-
-  .headline {
-    font-size: var(--font-size-4);
   }
 
   .semicolon {
