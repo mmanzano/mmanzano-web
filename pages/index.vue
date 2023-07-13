@@ -9,10 +9,11 @@ useHead({
 <template>
   <div>
     <ServiceList class="service-list" />
+    <Headline class="headline-section" />
     <AbilityList class="abilty-list" />
     <SocialMediaLinkList class="social-media-list" />
     <div class="licenses">
-      <NuxtLink :to="localePath('/licenses')" class="mt-8 underline">
+      <NuxtLink :to="localePath('/licenses')">
         {{ t('licenses') }}
       </NuxtLink>
     </div>
@@ -21,18 +22,27 @@ useHead({
 
 <style scoped>
 .service-list {
-  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.headline-section {
+  margin-bottom: 2rem;
 }
 .ability-list {
-  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .social-media-list {
-  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 .licenses {
   text-align: center;
-  font-size: 1.25rem;
+  font-size: var(--font-size-2);
   line-height: 1.75rem;
-}</style>
+  color: black;
+}
+.licenses a {
+  text-decoration: none;
+  color: black;
+}
+</style>

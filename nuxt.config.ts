@@ -6,8 +6,13 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@pinia/nuxt',
     '@vueuse/nuxt',
-    '@nuxtjs/tailwindcss',
     '@nuxt/content',
+  ],
+
+  css: [
+    '~/assets/css/variables.css',
+    '~/assets/css/fonts.css',
+    '~/assets/css/reset.css',
   ],
 
   components: {
@@ -15,6 +20,7 @@ export default defineNuxtConfig({
       '~/components',
     ],
   },
+
   app: {
     // Global page headers: https://v3.nuxtjs.org/getting-started/seo-meta#defaults
     head: {
@@ -74,5 +80,9 @@ export default defineNuxtConfig({
       { code: 'en', iso: 'en', file: 'en.json', dir: 'ltr' },
       { code: 'es', iso: 'es', file: 'es.json', dir: 'ltr' },
     ]
+  },
+
+  devtools: {
+    enabled: true
   }
 })

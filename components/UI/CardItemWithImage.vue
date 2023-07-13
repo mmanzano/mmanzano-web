@@ -22,13 +22,17 @@ defineProps<CardProps>()
 
 <style scoped>
 .card {
-  background-color: #FFF;
+  background-color: var(--menu-button-bg-color);
+  border: 1px solid black;
+  border-radius: 0 0 1em 1em;
   color: #333;
   padding: 0rem;
+  box-shadow: 1px 1px 1px gray;
 }
 
 .card:hover {
-  box-shadow: 4px 4px 4px gray;
+  background-color: var(--menu-button-bg-color-hover);
+  box-shadow: 4px 4px 4px grey;
 }
 
 .card__image {
@@ -42,16 +46,16 @@ defineProps<CardProps>()
 }
 
 .card__title {
-  font-weight: 800;
-  font-size: 1.5em;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-3);
   padding: .5em 0em;
 }
 
 .card__description {
-  font-size: .8em;
+  font-size: var(--font-size-2);
 }
 
 .card__date {
-  font-size: .6em;
+  font-size: var(--font-size-1);
 }
 </style>

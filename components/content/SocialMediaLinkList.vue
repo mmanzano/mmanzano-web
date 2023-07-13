@@ -20,7 +20,6 @@
             </div>
         </NuxtLink>
         <NuxtLink to="https://www.flickr.com/photos/nesimo" target="_blank">
-
             <div class="link">
                 <img src="~/assets/icons/flickr.svg" alt="Flickr logo" class="icon" />
                 <div class="icon__text">Flickr</div>
@@ -36,6 +35,10 @@
 </template>
 
 <style scoped>
+a {
+    text-decoration: none;
+}
+
 .list {
     display: flex;
     flex-wrap: wrap;
@@ -63,6 +66,7 @@
 @media(min-width: 850px) {
     .icon__text {
         display: block;
+        font-size: var(--font-size-2);
     }
 }
 </style>
