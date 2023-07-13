@@ -51,13 +51,16 @@ export default defineNuxtConfig({
     }
   },
 
+  experimental: {
+    payloadExtraction: false
+  },
+
+  routeRules: {
+    // Static page generated on-demand once
+    '/**': { isr: true }
+  },
+
   nitro: {
-    routeRules: {
-      // Static page generated on-demand once
-      '/**': { isr: true },
-      '/es/**': { isr: true },
-      '/en/**': { isr: true }
-    },
     prerender: {
       crawlLinks: true,
       routes: [
