@@ -58,7 +58,6 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      crawlLinks: true,
       routes: [
         '/es',
         '/en',

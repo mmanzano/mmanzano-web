@@ -10,14 +10,16 @@ const props = defineProps({
     default: 'en',
   }
 })
-const { data: articleList } = await useAsyncData(
-    props.blogLanguage,
-    async () => await useBlogIndex(props.blogLanguage)
+/*const { data: articleList, execute } = useAsyncData(
+    () => props.blogLanguage,
+    () => useBlogIndex(props.blogLanguage)
 );
+await execute();*/
+const articleList = await useBlogIndex(props.blogLanguage);
 </script>
 
 <template>
-  <div>
-    <ArticleList :articles="articleList" />
+  <div v-if="articleList && articleList.length > 0 && articleList[0].language === blogLanguage">
+    <ArticleList :articles="articleList" :key="blogLanguage"/>
   </div>
 </template>
