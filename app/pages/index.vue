@@ -1,5 +1,5 @@
 <template>
-  <a href="/en">English</a>
+  <NuxtLink to="/en">English</NuxtLink>
   |
-  <a href="/es">Castellano</a>
+  <NuxtLink to="/es">Castellano</NuxtLink>
 </template>

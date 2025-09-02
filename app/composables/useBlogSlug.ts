@@ -9,7 +9,8 @@ export const useBlogSlug = async (): Promise<Article> => {
   if (slug === null) {
     throw Error('Something is not working properly. We are not getting the slug. Sorry, can you try again.')
   }
-  await ArticleStore.getArticle(route.fullPath.split('/')[1] || 'en', slug)
+  const lang = useRouteLang();
+  await ArticleStore.getArticle(lang, slug)
   if (!ArticleStore.article) {
     throw createError({ statusCode: 404, fatal: true })
   }

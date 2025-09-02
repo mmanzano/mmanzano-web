@@ -2,7 +2,7 @@
     "home": "Inicio",
     "home_route": "/es",
     "blog": "Bitácora",
-    "blog_route": "/es/bitacora",
+    "blog_route": "/es/blog",
     "welcome": "Bienvenido",
     "moto": "En busca del punto y coma perdido",
     "moto_headline": "Desarrollo API usando tests automáticos con Laravel",
