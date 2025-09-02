@@ -40,10 +40,6 @@ export default defineNuxtConfig({
     },
   },
 
-  content: {
-    markdown: {},
-  },
-
   // config
   runtimeConfig: {
     public: {
@@ -76,13 +72,14 @@ export default defineNuxtConfig({
   },
 
   i18n: {
+    baseUrl: 'https://mmanzano.com/',
     detectBrowserLanguage: false,
-    strategy: 'prefix',
+    strategy:'no_prefix',
     defaultLocale: 'en',
-    langDir: 'internationalization',
+    langDir: 'locales',
     locales: [
-      { code: 'en', iso: 'en', file: 'en.json', dir: 'ltr' },
-      { code: 'es', iso: 'es', file: 'es.json', dir: 'ltr' },
+      { code: 'en', language: 'en', file: 'en.json', dir: 'ltr' },
+      { code: 'es', language: 'es', file: 'es.json', dir: 'ltr' },
     ]
   },
 

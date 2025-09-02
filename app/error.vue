@@ -2,7 +2,6 @@
 defineProps({
   error: Object,
 })
-await useLocaleFromRoute()
 const { t } = useI18n()
 const localePath = useLocalePath()
 const titleMessage = t('error_page_not_found')
@@ -20,7 +19,7 @@ useHead({
       <div class="layout__content">
         <h1 class="error__message"><strong>{{ errorMessage }}</strong></h1>
 
-        <NuxtLink :to="localePath('/')" class="error__link">
+        <NuxtLink :to="`/${useI18n().locale.value}`" class="error__link">
             {{ goHome }}
           </NuxtLink>
         </div>

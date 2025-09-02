@@ -1,8 +1,6 @@
 import type Author from './Author'
 
 export default interface Article {
-  _path?: string;
-  _type?: string;
   title?: string;
   slug: string;
   language: string;

@@ -1,4 +1,4 @@
-import { RouteLocationNormalizedLoaded } from "vue-router"
+import type { RouteLocationNormalizedLoaded } from "vue-router"
 
 export const usePropertyFromRoute = (to: RouteLocationNormalizedLoaded, property: 'slug' | 'lang'): string | null => {
     if (!to.params[property]) {
@@ -6,9 +6,13 @@ export const usePropertyFromRoute = (to: RouteLocationNormalizedLoaded, property
     }
 
     const value: string | string[] = to.params[property]
-    if (Array.isArray(value)) {
+    if (typeof value === 'string') {
+        return value
+    }
+
+    if (Array.isArray(value) && value.length > 0 && typeof value[0] === 'string') {
         return value[0]
     }
 
-    return value
+    return null
 }

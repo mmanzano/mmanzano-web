@@ -1,40 +1,31 @@
 import { defineStore, acceptHMRUpdate } from "pinia"
-import { ParsedContent } from "@nuxt/content/dist/runtime/types"
-import Article from "@/interfaces/Article"
-import Author from "@/interfaces/Author"
-import PaginatorRef from "@/interfaces/PaginatorRef"
+import type Article from "@/interfaces/Article"
+import type Author from "@/interfaces/Author"
 
 interface ArticleStoreState {
     articleList: Article[]
     article: Article | null
-    paginator: (PaginatorRef | null)[]
 }
 
 export const useArticleStore = defineStore("ArticleStore", {
     state: (): ArticleStoreState => {
         return {
             articleList: [],
-            article: null,
-            paginator: []
+            article: null
         }
     },
     actions: {
         async getArticleList(language: string) {
             const { data: articles } = await useAsyncData(
                 'home-articles',
-                () => queryContent('articles')
-                    .without([
-                        'body',
-                    ])
-                    .where({
-                        language,
-                        isHidden: 0,
-                        isDeleted: 0
-                    })
-                    .sort({
-                        order: -1
-                    })
-                    .find()
+                () => queryCollection('articles')
+                    .andWhere(
+                        (query) => query.where('language', '=', language)
+                            .where('isHidden', '=', 0)
+                            .where('isDeleted', '=', 0)
+                    )
+                    .order('order', "DESC")
+                    .all()
             )
 
             this.articleList = Array.isArray(articles.value) ? articles.value.map(parseFullArticle) : []
@@ -43,51 +34,22 @@ export const useArticleStore = defineStore("ArticleStore", {
         async getArticle(language: string, slug: string) {
             const { data: article } = await useAsyncData(
                 `article-${slug}`,
-                () => queryContent('articles')
-                    .where({
-                        language,
-                        slug,
-                        isDeleted: 0
-                    })
-                    .findOne()
+                () => queryCollection('articles')
+                    .andWhere(
+                        (query) => query.where('language', '=', language)
+                                .where('slug', '=', slug)
+                                .where('isDeleted', '=', 0)
+                    )
+                    .first()
             )
 
             this.article = article.value ? parseFullArticle(article.value) : null
         },
-
-        async getPaginator(language: string, slug: string, path?: string) {
-            if (path === undefined) {
-                this.paginator = []
-                return
-            }
-
-            const { data: paginator } = await useAsyncData(
-                `article-${language}-${slug}-links`,
-                () => queryContent('articles')
-                    .only([
-                        'title',
-                        'slug'
-                    ])
-                    .where({
-                        language,
-                        isHidden: 0,
-                        isDeleted: 0
-                    })
-                    .sort({
-                        order: 1
-                    })
-                    .findSurround(path)
-            )
-
-            this.paginator = Array.isArray(paginator.value) ? paginator.value.map(parsePaginator) : []
-        }
     },
 })
 
-function parseFullArticle(article: Partial<ParsedContent>): Article {
+function parseFullArticle(article: any): Article {
     return {
-        '_path': article._path,
-        '_type': article._type,
         'title': article.title,
         'slug': article.slug,
         'language': article.language,
@@ -97,17 +59,6 @@ function parseFullArticle(article: Partial<ParsedContent>): Article {
         'description': article.description,
         'body': article.body,
         'updatedAt': article.updatedAt,
-    }
-}
-
-function parsePaginator(article: Partial<ParsedContent>): PaginatorRef | null {
-    if (!article) {
-        return null
-    }
-
-    return {
-        title: article.title,
-        slug: article.slug,
     }
 }
 

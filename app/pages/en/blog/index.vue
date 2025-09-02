@@ -1,17 +1,17 @@
 <script setup lang="ts">
+const {setLocale} = useI18n();
+await setLocale('en');
+
 definePageMeta({
   middleware: [
     'blog-is-visible',
   ],
 })
-defineI18nRoute({
-  locales: ['en']
-})
 useHead({
   title: 'Blog',
 })
 
-const articleList = await useBlogIndex()
+const articleList = await useBlogIndex('en')
 </script>
 
 <template>

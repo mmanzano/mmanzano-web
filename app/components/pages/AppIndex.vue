@@ -1,5 +1,4 @@
 <script setup lang="ts">
-const localePath = useLocalePath()
 const { t } = useI18n()
 useHead({
   title: t('home'),
@@ -13,7 +12,7 @@ useHead({
     <AbilityList class="abilty-list" />
     <SocialMediaLinkList class="social-media-list" />
     <div class="licenses">
-      <NuxtLink :to="localePath('/licenses')">
+      <NuxtLink :to="`/${useI18n().locale.value}/licenses`">
         {{ t('licenses') }}
       </NuxtLink>
     </div>
