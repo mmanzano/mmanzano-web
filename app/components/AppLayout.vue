@@ -22,12 +22,12 @@ const head = useLocaleHead({
   </Head>
 
   <Body>
-    <div class="layout__background">
-      <MainHeader />
-      <div class="layout__content">
-        <NuxtPage />
-      </div>
+  <div class="layout__background">
+    <MainHeader />
+    <div class="layout__content">
+      <slot />
     </div>
+  </div>
   </Body>
 
   </Html>

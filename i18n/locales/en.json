@@ -1,6 +1,8 @@
 {
     "home": "Home",
+    "home_route": "/en",
     "blog": "Blog",
+    "blog_route": "/en/blog",
     "welcome": "Welcome",
     "moto": "Seeking the missing semicolon",
     "moto_headline": "API development with automated tests using Laravel",

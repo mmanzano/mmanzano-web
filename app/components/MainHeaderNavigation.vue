@@ -1,21 +1,19 @@
 <script setup lang="ts">
 const config = useRuntimeConfig()
 const { t } = useI18n()
-const route = useRoute()
-const language = route.fullPath.split('/')[1]
 </script>
 
 <template>
   <div class="navigation">
     <ul class="menu">
       <li>
-        <NuxtLink :to="language === 'en' ? '/en' : '/es'" class="menu__item">{{ t('home', language) }}</NuxtLink>
+        <NuxtLink :to="t('home_route')" class="menu__item">{{ t('home') }}</NuxtLink>
       </li>
       <!-- <li class="menu__item">
         <NuxtLink :to="language === 'en' ? '/en/lab' : '/es/lab'" class="menu__item">Lab</NuxtLink>
       </li> -->
       <li>
-        <NuxtLink :to="language === 'en' ? '/en/blog' : '/es/bitacora'" v-if="config.public.blogIsVisible" class="menu__item">{{
+        <NuxtLink :to="t('blog_route')" v-if="config.public.blogIsVisible" class="menu__item">{{
           t('blog')
         }}
         </NuxtLink>

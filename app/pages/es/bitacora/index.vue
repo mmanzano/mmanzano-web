@@ -1,21 +1,16 @@
 <script setup lang="ts">
-const {setLocale} = useI18n();
+const {setLocale, waitForPendingLocaleChange} = useI18n();
 await setLocale('es');
-
+await waitForPendingLocaleChange();
 definePageMeta({
   middleware: [
     'blog-is-visible',
   ],
 })
-useHead({
-  title: 'Bitácora',
-})
-
-const articleList = await useBlogIndex('es')
 </script>
 
 <template>
-  <div>
-    <ArticleList :articles="articleList" />
-  </div>
+  <AppLayout key="blog-es">
+    <PagesAppBlog blog-language="es" key="blog-es-slot"/>
+  </AppLayout>
 </template>

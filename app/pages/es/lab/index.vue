@@ -1,8 +1,11 @@
 <script setup lang="ts">
-const {setLocale} = useI18n();
+const {setLocale, waitForPendingLocaleChange} = useI18n();
 await setLocale('es');
+await waitForPendingLocaleChange();
 </script>
 
 <template>
-  <PagesAppLab />
+  <AppLayout key="lab-es">
+    <PagesAppLab key="lab-es-slot" />
+  </AppLayout>
 </template>

@@ -1,8 +1,11 @@
 <script setup lang="ts">
-const {setLocale} = useI18n();
+const {setLocale, waitForPendingLocaleChange} = useI18n();
 await setLocale('en');
+await waitForPendingLocaleChange();
 </script>
 
 <template>
-  <PagesAppIndex />
+  <AppLayout key="index-en">
+    <PagesAppIndex key="index-en-slot" />
+  </AppLayout>
 </template>
