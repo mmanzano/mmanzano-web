@@ -1,4 +1,6 @@
 {
+    "root": "Root",
+    "root_route": "/",
     "home": "Home",
     "home_route": "/en",
     "blog": "Blog",

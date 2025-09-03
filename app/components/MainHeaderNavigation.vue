@@ -7,16 +7,16 @@ const { t } = useI18n()
   <div class="navigation">
     <ul class="menu">
       <li>
+        <NuxtLink :to="t('root_route')" class="menu__item">{{ t('root')}}</NuxtLink>
+      </li>
+      <li>
         <NuxtLink :to="t('home_route')" class="menu__item">{{ t('home') }}</NuxtLink>
       </li>
       <!-- <li class="menu__item">
         <NuxtLink :to="language === 'en' ? '/en/lab' : '/es/lab'" class="menu__item">Lab</NuxtLink>
       </li> -->
       <li>
-        <NuxtLink :to="t('blog_route')" v-if="config.public.blogIsVisible" class="menu__item">{{
-          t('blog')
-        }}
-        </NuxtLink>
+        <NuxtLink :to="t('blog_route')" v-if="config.public.blogIsVisible" class="menu__item">{{ t('blog') }}</NuxtLink>
       </li>
     </ul>
   </div>

@@ -1,4 +1,6 @@
 {
+    "root": "Raíz",
+    "root_route": "/",
     "home": "Inicio",
     "home_route": "/es",
     "blog": "Bitácora",

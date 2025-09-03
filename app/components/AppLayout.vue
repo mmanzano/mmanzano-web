@@ -41,7 +41,7 @@ const head = useLocaleHead({
 .layout__background {
   min-height: 100vh;
   font-size: 1.25rem;
-  background-color: white;
+  background-color: var(--layout-bg-color);
 }
 
 .layout__content {
