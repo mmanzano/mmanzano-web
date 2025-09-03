@@ -15,7 +15,7 @@ defineProps<CardProps>()
         :src="imageUrl"
         :alt="imageAlt"
         class="card__image"
-        width="400px"
+        height="125"
     />
     <div class="card__body">
       <h2 class="card__title">{{ title }}</h2>
@@ -41,7 +41,7 @@ defineProps<CardProps>()
 }
 
 .card__image {
-  height: 200px;
+  height: 125px;
   width: 100%;
   object-fit: cover;
 }
@@ -52,15 +52,17 @@ defineProps<CardProps>()
 
 .card__title {
   font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-3);
+  font-size: var(--font-size-2);
   padding: .5em 0em;
 }
 
 .card__description {
-  font-size: var(--font-size-2);
+  font-size: var(--font-size-1);
 }
 
 .card__date {
-  font-size: var(--font-size-1);
+  margin-top: 1em;
+  text-align: right;
+  font-size: var(--font-size-mini);
 }
 </style>

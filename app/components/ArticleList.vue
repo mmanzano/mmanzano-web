@@ -21,7 +21,7 @@ defineProps<Props>()
   display: grid;
   justify-items: center;
   gap: 2rem;
-  grid-template-columns: repeat(auto-fill, minmax(min(18rem, 100%), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(11rem, 100%), 1fr));
 }
 
 article {

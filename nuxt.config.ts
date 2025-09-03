@@ -1,6 +1,6 @@
 import { defineNuxtConfig } from 'nuxt/config'
 
-// https://v3.nuxtjs.org/api/configuration/nuxt.config
+// https://nuxt.com/docs/4.x/api/nuxt-config
 export default defineNuxtConfig({
   modules: ['@nuxtjs/i18n', '@pinia/nuxt', '@vueuse/nuxt', '@nuxt/content', '@nuxt/image'],
 
