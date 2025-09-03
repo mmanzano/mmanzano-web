@@ -17,7 +17,7 @@ export const useArticleStore = defineStore("ArticleStore", {
     actions: {
         async getArticleList(language: string) {
             const { data: articles } = await useAsyncData(
-                'home-articles',
+                `home-articles-${language}`,
                 () => queryCollection('articles')
                     .andWhere(
                         (query) => query.where('language', '=', language)
@@ -28,12 +28,12 @@ export const useArticleStore = defineStore("ArticleStore", {
                     .all()
             )
 
-            this.articleList = Array.isArray(articles.value) ? articles.value.map(parseFullArticle) : []
+            this.articleList = Array.isArray(articles.value) ? articles.value.map(parseFullArticle) : [];
         },
 
         async getArticle(language: string, slug: string) {
             const { data: article } = await useAsyncData(
-                `article-${slug}`,
+                `article-${language}-${slug}`,
                 () => queryCollection('articles')
                     .andWhere(
                         (query) => query.where('language', '=', language)
@@ -41,9 +41,9 @@ export const useArticleStore = defineStore("ArticleStore", {
                                 .where('isDeleted', '=', 0)
                     )
                     .first()
-            )
+            );
 
-            this.article = article.value ? parseFullArticle(article.value) : null
+            this.article = article.value ? parseFullArticle(article.value) : null;
         },
     },
 })
