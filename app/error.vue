@@ -1,9 +1,10 @@
 <script setup lang="ts">
-defineProps({
+const props = defineProps({
   error: Object,
 })
-const { t } = useI18n()
-const localePath = useLocalePath()
+const { setLocale, t } = useI18n();
+const lang = useRouteLang();
+await setLocale(lang);
 const titleMessage = t('error_page_not_found')
 const errorMessage = t('error_page_not_found_headline')
 const goHome = t('error_go_home')
@@ -13,37 +14,16 @@ useHead({
 </script>
 
 <template>
-  <div class="layout__container">
-    <div class="layout__background">
-      <MainHeader />
-      <div class="layout__content">
-        <h1 class="error__message"><strong>{{ errorMessage }}</strong></h1>
+  <AppLayout>
+      <h1 class="error__message"><strong>{{ errorMessage }}</strong></h1>
 
-        <NuxtLink :to="`/${useI18n().locale.value}`" class="error__link">
-            {{ goHome }}
-          </NuxtLink>
-        </div>
-      </div>
-    </div>
+      <NuxtLink :to="`/${lang}`" class="error__link">
+          {{ goHome }}
+      </NuxtLink>
+  </AppLayout>
 </template>
 
 <style scoped>
-.layout__container {
-  width: 100%;
-}
-
-.layout__background {
-  min-height: 100vh;
-  font-size: 1.25rem;
-  background-color: var(--layout-bg-color);
-}
-
-.layout__content {
-  margin: 0 auto;
-  max-width: 1024px;
-  padding: 1rem;
-}
-
 .error__message {
   padding: 0px 2.5rem;
   margin: 0px 2.5rem;
