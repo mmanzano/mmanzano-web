@@ -3,12 +3,12 @@ const { t } = useI18n()
 </script>
 
 <template>
-  <slot />
+  <slot name="caption"/>
   <div class="tdd-diagram-box">
     <div class="round-signal test-box">
       <div>
         <div class="box-text">
-          {{ t('tdd_diagram_test') }}
+          <slot name="test" />
         </div>
       </div>
     </div>
@@ -16,7 +16,7 @@ const { t } = useI18n()
     <div class="round-signal green-box">
       <div>
         <div class="box-text">
-          {{ t('tdd_diagram_code') }}
+          <slot name="code" />
         </div>
       </div>
     </div>
@@ -24,7 +24,7 @@ const { t } = useI18n()
     <div class="round-signal refactor-box">
       <div>
         <div class="box-text">
-          {{ t('tdd_diagram_refactor') }}
+          <slot name="refactor" />
         </div>
       </div>
     </div>

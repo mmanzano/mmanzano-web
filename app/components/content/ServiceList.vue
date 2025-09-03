@@ -26,7 +26,18 @@ const { t } = useI18n()
                 </div>
                 <div class="diagram">
                     <TheTDDDiagram>
+                      <template #test>
+                        {{ t('tdd_diagram_test') }}
+                      </template>
+                      <template #code>
+                        {{ t('tdd_diagram_code') }}
+                      </template>
+                      <template #refactor>
+                        {{ t('tdd_diagram_refactor') }}
+                      </template>
+                      <template #caption>
                         <p class="diagram__text">{{ t('tdd_diagram_caption') }}</p>
+                      </template>
                     </TheTDDDiagram>
                 </div>
             </template>

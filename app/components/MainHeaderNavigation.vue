@@ -7,16 +7,16 @@ const { t } = useI18n()
   <div class="navigation">
     <ul class="menu">
       <li>
-        <NuxtLink :to="t('root_route')" class="menu__item">{{ t('root')}}</NuxtLink>
+        <UIAppMenuItem :to="t('root_route')">{{ t('root')}}</UIAppMenuItem>
       </li>
       <li>
-        <NuxtLink :to="t('home_route')" class="menu__item">{{ t('home') }}</NuxtLink>
+        <UIAppMenuItem :to="t('home_route')">{{ t('home') }}</UIAppMenuItem>
       </li>
-      <!-- <li class="menu__item">
-        <NuxtLink :to="language === 'en' ? '/en/lab' : '/es/lab'" class="menu__item">Lab</NuxtLink>
+      <!-- <li>
+        <UIAppMenuItem :to="language === 'en' ? '/en/lab' : '/es/lab'">Lab</UIAppMenuItem>
       </li> -->
       <li>
-        <NuxtLink :to="t('blog_route')" v-if="config.public.blogIsVisible" class="menu__item">{{ t('blog') }}</NuxtLink>
+        <UIAppMenuItem :to="t('blog_route')" v-if="config.public.blogIsVisible">{{ t('blog') }}</UIAppMenuItem>
       </li>
     </ul>
   </div>
@@ -45,17 +45,5 @@ const { t } = useI18n()
   line-height: 1.75rem;
   text-decoration: underline;
   padding: 0px;
-}
-
-.menu__item {
-  margin-right: 0.5rem;
-  background-color: var(--menu-button-bg-color);
-  padding: 0.5em 1em;
-  border-radius: .3em;
-  color: black;
-}
-
-.menu__item:hover {
-  background-color: var(--menu-button-bg-color-hover);
 }
 </style>
