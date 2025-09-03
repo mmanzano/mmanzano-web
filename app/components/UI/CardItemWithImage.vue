@@ -11,7 +11,12 @@ defineProps<CardProps>()
 
 <template>
   <div class="card">
-    <img :src="imageUrl" :alt="imageAlt" class="card__image" />
+    <NuxtImg
+        :src="imageUrl"
+        :alt="imageAlt"
+        class="card__image"
+        width="400px"
+    />
     <div class="card__body">
       <h2 class="card__title">{{ title }}</h2>
       <p class="card__description">{{ description }}</p>

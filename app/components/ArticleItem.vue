@@ -21,7 +21,13 @@ const formatDate = (lang: string, date: string): string => {
 
     <ContentRenderer class="article-item--body" :value="article"></ContentRenderer>
 
-    <img :src="`/pictures/${article.img}`" />
+    <picture class="article-item--footer">
+      <NuxtImg
+          :src="`/pictures/${article.img}`"
+          :alt="article.alt"
+          sizes="400px md:800px"
+      />
+    </picture>
     <ArticleItemAuthor v-for="author in article.authors" :key="author.name" :author="author" />
     <p class="article-item--date">
       {{ t('article_last_updated_at') }}:
@@ -54,6 +60,12 @@ const formatDate = (lang: string, date: string): string => {
 }
 
 .article-item--body p {
+  margin-bottom: 1em;
+}
+
+.article-item--footer {
+  display: flex;
+  justify-content: center;
   margin-bottom: 1em;
 }
 

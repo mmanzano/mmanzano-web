@@ -2,12 +2,7 @@ import { defineNuxtConfig } from 'nuxt/config'
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  modules: [
-    '@nuxtjs/i18n',
-    '@pinia/nuxt',
-    '@vueuse/nuxt',
-    '@nuxt/content',
-  ],
+  modules: ['@nuxtjs/i18n', '@pinia/nuxt', '@vueuse/nuxt', '@nuxt/content', '@nuxt/image'],
 
   css: [
     '~/assets/css/variables.css',
