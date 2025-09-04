@@ -3,7 +3,7 @@ import type Article from '@/interfaces/Article';
 
 interface Props {
   article: Article
-};
+}
 
 const props = defineProps<Props>();
 

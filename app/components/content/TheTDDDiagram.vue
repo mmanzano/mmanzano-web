@@ -1,7 +1,3 @@
-<script setup lang="ts">
-const { t } = useI18n()
-</script>
-
 <template>
   <slot name="caption"/>
   <div class="tdd-diagram-box">
@@ -73,7 +69,7 @@ const { t } = useI18n()
   background-color: #555;
 }
 
-@media(min-width: 300px) {
+@media (min-width: 300px) {
   .box-text {
     display: block;
   }

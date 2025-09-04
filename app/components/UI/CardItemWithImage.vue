@@ -6,7 +6,8 @@ interface CardProps {
   description: string,
   date: string,
 }
-defineProps<CardProps>()
+
+defineProps<CardProps>();
 </script>
 
 <template>

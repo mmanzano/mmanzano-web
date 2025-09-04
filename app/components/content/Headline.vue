@@ -20,7 +20,7 @@ const { t } = useI18n();
   border-bottom: 2px solid var(--headline-bg-color);
 }
 
-@media(min-width: 750px) {
+@media (min-width: 750px) {
     
   .headline {
     font-size: var(--font-size-4);

@@ -1,5 +1,7 @@
 <template>
-  <NuxtLink v-bind="$attrs" class="menu__item"><slot /></NuxtLink>
+  <NuxtLink v-bind="$attrs" class="menu__item">
+    <slot />
+  </NuxtLink>
 </template>
 
 <style scoped>

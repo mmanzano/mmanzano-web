@@ -3,7 +3,7 @@
     <div>
       <UIAppMenuItem to="/en">English</UIAppMenuItem>
     </div>
-    <div>
+    <div class="index-graphic">
       <TheTDDDiagram>
         <template #test>
           Hi
@@ -21,15 +21,34 @@
     </div>
   </div>
 </template>
+
 <style scoped>
 .container {
   min-height: 100vh;
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
   background: var(--layout-bg-color);
   font-size: var(--font-size-2);
 }
+
+.index-graphic {
+  display: none;
+}
+
+@media (min-width: 300px) {
+  .index-graphic {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    gap: 0;
+    justify-content: space-evenly;
+  }
+}
 </style>
-<script setup lang="ts">
-</script>

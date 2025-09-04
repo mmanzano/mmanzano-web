@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type Article from '@/interfaces/Article'
+import type Article from '@/interfaces/Article';
 
 interface Props {
   articles: Article[]
 }
 
-defineProps<Props>()
+defineProps<Props>();
 </script>
 
 <template>

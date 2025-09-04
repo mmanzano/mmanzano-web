@@ -1,13 +1,20 @@
 <script setup lang="ts">
-const props = defineProps({
+defineProps({
   error: Object,
 })
+
 const { setLocale, t } = useI18n();
+
 const lang = useRouteLang();
+
 await setLocale(lang);
-const titleMessage = t('error_page_not_found')
-const errorMessage = t('error_page_not_found_headline')
-const goHome = t('error_go_home')
+
+const titleMessage = t('error_page_not_found');
+
+const errorMessage = t('error_page_not_found_headline');
+
+const goHome = t('error_go_home');
+
 useHead({
   title: `${titleMessage} - Miguel Manzano`
 })

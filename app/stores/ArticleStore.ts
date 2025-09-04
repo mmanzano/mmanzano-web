@@ -1,6 +1,6 @@
-import { defineStore, acceptHMRUpdate } from "pinia"
-import type Article from "@/interfaces/Article"
-import type Author from "@/interfaces/Author"
+import { defineStore, acceptHMRUpdate } from "pinia";
+import type Article from "@/interfaces/Article";
+import type Author from "@/interfaces/Author";
 
 interface ArticleStoreState {
     articleList: Article[]
@@ -12,7 +12,7 @@ export const useArticleStore = defineStore("ArticleStore", {
         return {
             articleList: [],
             article: null
-        }
+        };
     },
     actions: {
         async getArticleList(language: string) {
@@ -26,7 +26,7 @@ export const useArticleStore = defineStore("ArticleStore", {
                     )
                     .order('order', "DESC")
                     .all()
-            )
+            );
 
             this.articleList = Array.isArray(articles.value) ? articles.value.map(parseFullArticle) : [];
         },

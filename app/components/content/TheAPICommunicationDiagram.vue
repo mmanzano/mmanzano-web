@@ -123,7 +123,7 @@ const { t } = useI18n();
   -webkit-transform: rotate(-90deg);
 }
 
-@media(min-width: 300px) {
+@media (min-width: 300px) {
   .arrows-box {
     min-width: 3em;
   }
@@ -137,8 +137,7 @@ const { t } = useI18n();
   }
 }
 
-@media(min-width: 921px) {
-
+@media (min-width: 921px) {
   .arrow-server-text,
   .arrow-client-text {
     display: block;

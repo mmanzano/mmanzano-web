@@ -1,12 +1,12 @@
 <script setup lang="ts">
-const article = await useBlogSlug()
+const article = await useBlogSlug();
 
 useHead({
   title: article.title,
   meta: [
     { name: 'description', content: article.description }
   ]
-})
+});
 </script>
 
 <template>

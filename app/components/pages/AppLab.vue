@@ -1,9 +1,9 @@
 <script setup lang="ts">
-const { t } = useI18n()
+const { t } = useI18n();
 
 useHead({
   title: 'Lab'
-})
+});
 </script>
 
 <template>
@@ -11,7 +11,3 @@ useHead({
     <p>{{ t('lab_headline') }}</p>
   </div>
 </template>
-
-<style scoped>
-
-</style>

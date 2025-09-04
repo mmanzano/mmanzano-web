@@ -63,7 +63,7 @@ a {
     display: none;
 }
 
-@media(min-width: 850px) {
+@media (min-width: 850px) {
     .icon__text {
         display: block;
         font-size: var(--font-size-2);

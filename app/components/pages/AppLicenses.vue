@@ -1,9 +1,11 @@
 <script setup lang="ts">
-const { t } = useI18n()
+const { t } = useI18n();
+
 useHead({
   title: t('licenses')
-})
+});
 </script>
+
 <template>
   <div>
     <h2 class="title">{{ t('licenses') }}</h2>

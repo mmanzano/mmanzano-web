@@ -1,18 +1,19 @@
 <script setup lang="ts">
-import type Article from '@/interfaces/Article'
-const { t } = useI18n()
+import type Article from '@/interfaces/Article';
+
+const { t } = useI18n();
 
 interface Props {
   article: Article | null,
 }
 
-defineProps<Props>()
+defineProps<Props>();
 
 const formatDate = (lang: string, date: string): string => {
   const options: object = { year: 'numeric', month: 'long', day: 'numeric' }
 
   return new Date(date).toLocaleDateString(lang, options)
-}
+};
 </script>
 
 <template>
@@ -69,7 +70,7 @@ const formatDate = (lang: string, date: string): string => {
   margin-bottom: 1em;
 }
 
-@media(min-width: 750px) {
+@media (min-width: 750px) {
   .article-item {
     padding: 0rem 0.5rem 0.5rem;
   }

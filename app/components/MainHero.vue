@@ -49,8 +49,7 @@ const { t } = useI18n();
   font-size: var(--font-size-2);
 }
 
-
-@media(min-width: 750px) {
+@media (min-width: 750px) {
   .moto {
     padding: 0rem 0.5rem 0.5rem;
     text-align: left;

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n();
+
 const abilities = [
     {
         'category': t('abilities_backend'),
@@ -74,7 +75,7 @@ const abilities = [
             },
         ]
     }
-]
+];
 </script>
 
 <template>
@@ -95,6 +96,7 @@ const abilities = [
     margin-top: 2em;
     margin-bottom: 1em;
 }
+
 .title {
     font-size: var(--font-size-2);
     font-weight: var(--font-weight-bold);

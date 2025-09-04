@@ -1,6 +1,7 @@
 export default defineNuxtRouteMiddleware((to) => {
-  const config = useRuntimeConfig()
+  const config = useRuntimeConfig();
+
   if (!config.public.blogIsVisible) {
-    return '/'
+    return '/';
   }
 })

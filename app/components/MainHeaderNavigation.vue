@@ -1,6 +1,7 @@
 <script setup lang="ts">
-const config = useRuntimeConfig()
-const { t } = useI18n()
+const config = useRuntimeConfig();
+
+const { t } = useI18n();
 </script>
 
 <template>
@@ -12,9 +13,6 @@ const { t } = useI18n()
       <li>
         <UIAppMenuItem :to="t('home_route')">{{ t('home') }}</UIAppMenuItem>
       </li>
-      <!-- <li>
-        <UIAppMenuItem :to="language === 'en' ? '/en/lab' : '/es/lab'">Lab</UIAppMenuItem>
-      </li> -->
       <li>
         <UIAppMenuItem :to="t('blog_route')" v-if="config.public.blogIsVisible">{{ t('blog') }}</UIAppMenuItem>
       </li>
@@ -24,10 +22,7 @@ const { t } = useI18n()
 
 <style scoped>
 .navigation {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
+  padding: 0.5rem 2.5rem;
   margin-top: 1em;
   margin-bottom: 0.5em;
   display: flex;
@@ -44,6 +39,6 @@ const { t } = useI18n()
   font-size: var(--font-size-2);
   line-height: 1.75rem;
   text-decoration: underline;
-  padding: 0px;
+  padding: 0;
 }
 </style>

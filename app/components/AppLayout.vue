@@ -1,12 +1,13 @@
 <script setup lang="ts">
 useHead({
   titleTemplate: (title) => title ? `${title} - Miguel Manzano` : 'Miguel Manzano'
-})
+});
+
 const head = useLocaleHead({
   addDirAttribute: true,
   identifierAttribute: 'id',
   addSeoAttributes: true
-})
+});
 </script>
 
 <template>
@@ -34,10 +35,6 @@ const head = useLocaleHead({
 </template>
 
 <style scoped>
-.layout__container {
-  width: 100%;
-}
-
 .layout__background {
   min-height: 100vh;
   font-size: 1.25rem;

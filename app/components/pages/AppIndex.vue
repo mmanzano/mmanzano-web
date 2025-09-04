@@ -1,15 +1,15 @@
 <script setup lang="ts">
-const { t } = useI18n()
+const { t } = useI18n();
 useHead({
   title: t('home'),
-})
+});
 </script>
 
 <template>
   <div>
     <ServiceList class="service-list" />
     <Headline class="headline-section" />
-    <AbilityList class="abilty-list" />
+    <AbilityList class="ability-list" />
     <SocialMediaLinkList class="social-media-list" />
     <div class="licenses">
       <NuxtLink :to="`/${useI18n().locale.value}/licenses`">
@@ -23,9 +23,11 @@ useHead({
 .service-list {
   margin-bottom: 2rem;
 }
+
 .headline-section {
   margin-bottom: 2rem;
 }
+
 .ability-list {
   margin-bottom: 2rem;
 }
@@ -40,6 +42,7 @@ useHead({
   line-height: 1.75rem;
   color: black;
 }
+
 .licenses a {
   text-decoration: none;
   color: black;

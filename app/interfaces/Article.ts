@@ -1,4 +1,4 @@
-import type Author from './Author'
+import type Author from './Author';
 
 export default interface Article {
   title?: string;
