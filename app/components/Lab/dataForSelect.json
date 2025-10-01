@@ -1,0 +1,38 @@
+[
+  {
+    "label": "Betelgeuse",
+    "value": "alpha-orionis-a"
+  },
+  {
+    "label": "Canopus",
+    "value": "alpha-carinae-a"
+  },
+  {
+    "label": "Cervantes",
+    "value": "mu-arae"
+  },
+  {
+    "label": "Copernicus",
+    "value": "5-cancri-a"
+  },
+  {
+    "label": "Deneb",
+    "value": "alpha-cygni"
+  },
+  {
+    "label": "Electra",
+    "value": "17-tauri"
+  },
+  {
+    "label": "Mizar",
+    "value": "zeta-ursae-majoris-aa"
+  },
+  {
+    "label": "Rosalíadecastro",
+    "value": "hd-149143"
+  },
+  {
+    "label": "Sirius",
+    "value": "alpha-canis-majoris"
+  }
+]

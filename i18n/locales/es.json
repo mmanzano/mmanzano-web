@@ -5,6 +5,8 @@
     "home_route": "/es",
     "blog": "Bitácora",
     "blog_route": "/es/blog",
+    "lab": "Lab",
+    "lab_route": "/es/lab",
     "welcome": "Bienvenido",
     "moto": "En busca del punto y coma perdido",
     "moto_headline": "Desarrollo API usando tests automáticos con Laravel",

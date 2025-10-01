@@ -16,6 +16,9 @@ const { t } = useI18n();
       <li>
         <UIAppMenuItem :to="t('blog_route')" v-if="config.public.blogIsVisible">{{ t('blog') }}</UIAppMenuItem>
       </li>
+      <li>
+        <UIAppMenuItem :to="t('lab_route')">{{ t('lab') }}</UIAppMenuItem>
+      </li>
     </ul>
   </div>
 </template>
