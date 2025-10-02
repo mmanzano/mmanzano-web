@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// Todo: accessibility
 // Todo: scope slots to be able to customize the item design
 // Todo: use an endpoint to get the data
 import { onClickOutside } from '@vueuse/core'
@@ -21,15 +20,19 @@ const props = withDefaults(defineProps<Props>(), {
 })
 const model = defineModel<string|string[]>();
 const query = ref<string>('');
+const searchInput = useTemplateRef<HTMLInputElement>('searchInput');
 const selectedItems = ref<Item[]>([]);
 const selecting = ref<boolean>(false);
-const target = useTemplateRef<HTMLElement>('target')
+const target = useTemplateRef<HTMLElement>('target');
+const selectList = useTemplateRef<HTMLUListElement>('selectList');
+const selectTrigger = useTemplateRef<HTMLInputElement>('selectTrigger');
 
 const resetStatus = () => {
   selecting.value = false;
   query.value = '';
 }
 const selectItem = (item: Item) => {
+  selectTrigger.value?.focus();
   if (props.multiple) {
     const position = selectedItems.value.findIndex((selectedItem) => selectedItem.value === item.value);
     if (position !== -1) {
@@ -48,6 +51,35 @@ const selectItem = (item: Item) => {
 const removeSelection = () => {
   selectedItems.value = [];
   resetStatus();
+}
+const toggleOverlay = async () => {
+  selecting.value = !selecting.value;
+  await nextTick();
+  if (selecting.value) {
+    searchInput.value?.focus();
+  } else {
+    selectTrigger.value?.focus();
+  }
+}
+const next = (index: number) => {
+  const items = selectList.value?.querySelectorAll("li") || [];
+  (items[index + 1] || searchInput.value)?.focus();
+}
+const prev = (index: number) => {
+  const items = selectList.value?.querySelectorAll("li") || [];
+  (items[index - 1] || searchInput.value)?.focus();
+}
+const moveToSelectTrigger = () => {
+  selectTrigger.value?.focus();
+  resetStatus();
+}
+const moveToFirstElement = () => {
+  const listItems = Array.from(selectList.value?.children || []) as HTMLLIElement[];
+  listItems[0]?.focus();
+}
+const closeOverlay = () => {
+  resetStatus();
+  selectTrigger.value?.focus();
 }
 const filteredItems = computed(() => {
   return props.items.filter((item) => query.value ? item.label.toLowerCase().includes(query.value.toLowerCase()) : true);
@@ -81,36 +113,48 @@ watch(selectedItems, (newValue) => {
     <div
         class="select-container"
         ref="target"
+        @keyup.esc.stop="closeOverlay"
     >
       <div>
-        <div
-            @click="selecting=!selecting"
+        <button
+            @click.prevent.stop="toggleOverlay"
+            @keyup.down.prevent.stop="toggleOverlay"
             :class="{'select-trigger': true, 'select-placeholder': !selectedItems.length}"
-            class="select-value"
+            ref="selectTrigger"
         >
           <span class="select-value--label">{{ selectedValues }}</span>
           <span class="select-value--reset" v-if="selectedItems.length" @click.stop="removeSelection">X</span>
-        </div>
+        </button>
       </div>
       <div>
         <div v-if="selecting" class="select-overlay">
           <div class="search-box" v-if="searchable">
             <input
+                ref="searchInput"
                 class="search-box--input"
                 type="text"
                 v-model="query"
                 placeholder="Search..."
+                @keyup.up.prevent.stop="moveToSelectTrigger"
+                @keyup.down.prevent.stop="moveToFirstElement"
             />
           </div>
-          <ul class="select-list">
+          <ul
+              class="select-list"
+              ref="selectList"
+          >
             <li
                 :class="{
                   'select-list--item': true,
                   'select-list--item-selected': selectedItems.includes(item),
                 }"
-                v-for="item in filteredItems"
+                v-for="(item, index) in filteredItems"
                 :key="item.value"
+                tabindex="0"
                 @click="selectItem(item)"
+                @keyup.enter.stop="selectItem(item)"
+                @keyup.down.prevent.stop="next(index)"
+                @keyup.up.prevent.stop="prev(index)"
             >
               {{ item.label }}
             </li>
@@ -144,23 +188,27 @@ watch(selectedItems, (newValue) => {
 }
 .select-container {
   position: relative;
+  width: max-content;
 }
 .select-trigger {
+  align-items: center;
   background-color: var(--background-trigger);
+  border: 0;
   border-radius: 0.5rem;
+  display: flex;
+  justify-content: space-between;
   outline: 1px solid var(--outline-trigger);
   padding: 0.5rem 1rem;
+  text-align: left;
   text-wrap: nowrap;
   width: var(--width);
   z-index: 1;
 }
+.select-trigger:focus {
+  outline: 4px solid var(--outline-trigger);
+}
 .select-placeholder {
   color: #7f7f7f;
-}
-.select-value {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
 }
 .select-value--label {
   overflow: hidden;
@@ -201,8 +249,8 @@ watch(selectedItems, (newValue) => {
   color: var(--search-input-box--placeholder);
 }
 .select-list {
-  max-height: var(--height);
   list-style: none;
+  max-height: var(--height);
   overflow-x: hidden;
   padding: 0;
 }
