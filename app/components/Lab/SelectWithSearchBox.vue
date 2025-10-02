@@ -1,94 +1,121 @@
 <script setup lang="ts">
+// Todo: accessibility
+// Todo: scope slots to be able to customize the item design
+// Todo: use an endpoint to get the data
 import { onClickOutside } from '@vueuse/core'
-import defaultItems from './dataForSelect.json' // <= import it
-const selecting = ref<boolean>(false);
-const query = ref<string>('');
+import defaultItems from './dataForSelect.json'
+
 type Item = { label: string, value: string};
 type Props = {
   name?: string;
   items?: Item[];
+  multiple?: boolean;
   searchable?: boolean;
-  showValue?: boolean;
 }
+
 const props = withDefaults(defineProps<Props>(), {
   name: 'select-with-search-example',
   items: () => defaultItems as Item[],
+  multiple: false,
   searchable: true,
-  showValue: true,
 })
-const selectedItem = ref<Item|null>(null);
-const model = defineModel<string>();
-const selectItem = (item: Item) => {
-  selectedItem.value = item;
+const model = defineModel<string|string[]>();
+const query = ref<string>('');
+const selectedItems = ref<Item[]>([]);
+const selecting = ref<boolean>(false);
+const target = useTemplateRef<HTMLElement>('target')
+
+const resetStatus = () => {
   selecting.value = false;
   query.value = '';
 }
+const selectItem = (item: Item) => {
+  if (props.multiple) {
+    const position = selectedItems.value.findIndex((selectedItem) => selectedItem.value === item.value);
+    if (position !== -1) {
+      selectedItems.value.splice(position, 1);
+      resetStatus();
+      return;
+    }
+
+    selectedItems.value.push(item);
+  } else {
+    selectedItems.value = [item];
+  }
+
+  resetStatus();
+}
 const removeSelection = () => {
-  selectedItem.value = null;
-  selecting.value = false;
+  selectedItems.value = [];
+  resetStatus();
 }
 const filteredItems = computed(() => {
   return props.items.filter((item) => query.value ? item.label.toLowerCase().includes(query.value.toLowerCase()) : true);
 })
-const target = useTemplateRef<HTMLElement>('target')
-onClickOutside(target, event => {
-  selecting.value = false;
-  query.value = '';
-});
-watch(selectedItem, (newValue) => {
-  model.value = newValue?.value || '';
+const selectedValues = computed(() => {
+  const selectInputPlaceholder = 'Select a value';
+
+  if (!selectedItems.value?.length) {
+    return selectInputPlaceholder;
+  }
+
+  return selectedItems.value.map((item) => item.label).join(', ');
+})
+
+onClickOutside(target, event => resetStatus());
+
+watch(selectedItems, (newValue) => {
+  if (props.multiple) {
+    model.value = newValue?.map((item) => item.value) || [];
+  } else {
+    model.value = newValue?.[0]?.value || '';
+  }
+}, {
+  deep: true
 })
 </script>
 
 <template>
   <div class="component">
-    <div class="component-title">Select With Search Box</div>
-    <div v-if="showValue">
-      <label :for="name">Value:</label>
-      <input
-          :id="name"
-          :name="name"
-          disabled
-          :hidden="!showValue"
-          class="form-value"
-          type="text"
-          v-model="model"
-      />
-    </div>
+    <div class="component-title"><slot name="title" /></div>
     <div
         class="select-container"
         ref="target"
     >
-      <div
-          @click="selecting=!selecting"
-          :class="{'select-trigger': true, 'select-placeholder': !selectedItem}"
-          class="select-value"
-      >
-        <span class="select-value--label">{{ selectedItem?.label || "Select a value" }}</span>
-        <span class="select-value--reset" v-if="selectedItem" @click.stop="removeSelection">X</span>
-      </div>
-      <div v-if="selecting" class="select-overlay">
-        <div class="search-box" v-if="searchable">
-          <input
-              class="search-box--input"
-              type="text"
-              v-model="query"
-              placeholder="Search..."
-          />
+      <div>
+        <div
+            @click="selecting=!selecting"
+            :class="{'select-trigger': true, 'select-placeholder': !selectedItems.length}"
+            class="select-value"
+        >
+          <span class="select-value--label">{{ selectedValues }}</span>
+          <span class="select-value--reset" v-if="selectedItems.length" @click.stop="removeSelection">X</span>
         </div>
-        <ul class="select-list">
-          <li
-              :class="{
-                'select-list--item': true,
-                'select-list--item-selected': item.value === selectedItem?.value,
-              }"
-              v-for="item in filteredItems"
-              :key="item.value"
-              @click="selectItem(item)"
-          >
-            {{ item.label }}
-          </li>
-        </ul>
+      </div>
+      <div>
+        <div v-if="selecting" class="select-overlay">
+          <div class="search-box" v-if="searchable">
+            <input
+                class="search-box--input"
+                type="text"
+                v-model="query"
+                placeholder="Search..."
+            />
+          </div>
+          <ul class="select-list">
+            <li
+                :class="{
+                  'select-list--item': true,
+                  'select-list--item-selected': selectedItems.includes(item),
+                }"
+                v-for="item in filteredItems"
+                :key="item.value"
+                @click="selectItem(item)"
+            >
+              {{ item.label }}
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
 
@@ -115,13 +142,6 @@ watch(selectedItem, (newValue) => {
   font-weight: bold;
   margin-bottom: 1rem;
 }
-.form-value {
-  border: 0;
-  border-radius: 0.2rem;
-  margin-bottom: 0.5rem;
-  margin-left: 1rem;
-  outline: 1px solid;
-}
 .select-container {
   position: relative;
 }
@@ -130,7 +150,9 @@ watch(selectedItem, (newValue) => {
   border-radius: 0.5rem;
   outline: 1px solid var(--outline-trigger);
   padding: 0.5rem 1rem;
+  text-wrap: nowrap;
   width: var(--width);
+  z-index: 1;
 }
 .select-placeholder {
   color: #7f7f7f;
@@ -161,6 +183,7 @@ watch(selectedItem, (newValue) => {
   position: absolute;
   outline: 1px solid var(--outline-overlay);
   width: var(--width);
+  z-index: 1;
 }
 .search-box {
   background-color: var(--background-search-box);
