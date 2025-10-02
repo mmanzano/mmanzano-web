@@ -201,7 +201,7 @@ watch(selectedItems, (newValue) => {
   color: var(--search-input-box--placeholder);
 }
 .select-list {
-  height: var(--height);
+  max-height: var(--height);
   list-style: none;
   overflow-x: hidden;
   padding: 0;
